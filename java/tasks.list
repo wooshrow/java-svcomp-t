@@ -1,0 +1,11 @@
+algorithms/BellmanFord-FunSat01
+algorithms/BellmanFord-FunUnsat01
+algorithms/BellmanFord-FunUnsat02
+algorithms/BellmanFord-MemUnsat01
+algorithms/BellmanFord-MemUnsat02
+algorithms/BinaryTreeSearch-FunSat01
+algorithms/BinaryTreeSearch-FunUnsat01
+algorithms/BinaryTreeSearch-MemUnsat01
+algorithms/BinaryTreeSearch-MemUnsat02
+algorithms/RedBlackTree-FunUnsat01
+algorithms/RedBlackTree-MemUnsat01
