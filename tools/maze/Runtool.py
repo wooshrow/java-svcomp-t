@@ -7,7 +7,7 @@ import subprocess
 import shutil
 toolname = "maze"
 
-def toolrun(benchhomeDir,task):
+def toolrun(benchhomeDir,task,tasktype):
    tooldir = Path(".")
    tooljar = f"{tooldir}/maze-1.1.2-jar-with-dependencies.jar"
    CUTclassdir = benchhomeDir / task / "classes"
@@ -24,6 +24,7 @@ def toolrun(benchhomeDir,task):
             "-m=main",
             f"-o={outputdir}",
             "--verificationMode=1",
+            "--error-type-to-find=AssertionError" if tasktype.endswith("valid-assert") else "--error-type-to-find=UnexpectedException",
             "--minimalistic-suite=true",
             "-s=BFS",
             "-b=60",

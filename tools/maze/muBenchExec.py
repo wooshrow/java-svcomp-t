@@ -69,10 +69,10 @@ def runBench(toolname,taskType) :
           expectedVerdict = True
       if taskType == "false-valid-assert" :
           expectedVerdict = False
-          
+
       starttime = time.time()
       try :
-         verdict = Runtool.toolrun(benchhomeDir,T)
+         verdict = Runtool.toolrun(benchhomeDir,T,taskType)
          duration = time.time() - starttime
       except :
          verdict = "CRASH"
@@ -83,6 +83,10 @@ def runBench(toolname,taskType) :
     print(f"== #tasks:{len(tasks)}, tested:{testedTasks}, correct:{correct}")
     print("==")
 
-
+#
+# run the benchmark. Syntax: runBench(tool-name,task-type)
+# Available task-types:
+#    true-valid-assert, false-valid-assert
+#
 #runBench("maze","false-valid-assert")
 runBench("maze","true-valid-assert")
