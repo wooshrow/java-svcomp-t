@@ -1,7 +1,7 @@
 //import org.sosy_lab.sv_benchmarks.Verifier;
 
 /**
- * Type : Memory Safety Expected Verdict : False Last modified by : Zafer Esen <zafer.esen@it.uu.se>
+ * Type : Memory Safety Expected Verdict : True Last modified by : Zafer Esen <zafer.esen@it.uu.se>
  * Date : 9 October 2019
  *
  * <p>Original license follows.
@@ -40,94 +40,88 @@
  */
 public class Main {
 
-  private static class BinaryTree {
-    /** Internal class representing a Node in the tree. */
-    private static class Node {
-      int value;
-      Node left;
-      Node right;
+  private static class TspSolver {
+    private final int N;
+    private int D[][];
+    private boolean visited[];
+    private int best;
 
-      Node(int v, Node l, Node r) {
-        value = v;
-        left = l;
-        right = r;
-      }
+    public int nCalls;
+
+    public TspSolver(int N, int D[][]) {
+      this.N = N;
+      this.D = D;
+      this.visited = new boolean[N];
+      this.nCalls = 0;
     }
 
-    private Node root = null;
+    public int solve() {
+      best = Integer.MAX_VALUE;
 
-    /** Inserts a value in to the tree. */
-    public void insert(int v) {
+      for (int i = 0; i < N; i++) visited[i] = false;
 
-      if (root == null) {
-        root = new Node(v, null, null);
+      visited[0] = true;
+      search(0, 0, N - 1);
+
+      return best;
+    }
+
+    private int bound(int src, int length, int nLeft) {
+      return length;
+    }
+
+    private void search(int src, int length, int nLeft) {
+      nCalls++;
+
+      if (nLeft == 0) {
+        if (length + D[src][0] < best) best = length + D[src][0];
         return;
       }
 
-      Node curr = root;
-      while (true) {
-        if (curr.value < v) {
-          if (curr.right == null) { // error, should be "!="
-            curr = curr.right;
-          } else {
-            curr.right = new Node(v, null, null);
-            break;
-          }
-        } else if (curr.value > v) {
-          if (curr.left != null) {
-            curr = curr.left;
-          } else {
-            curr.left = new Node(v, null, null);
-            break;
-          }
-        } else {
-          break;
-        }
-      }
-    }
+      if (bound(src, length, nLeft) >= best) return;
 
-    /** Searches for a value in the tree. */
-    public boolean search(int v) {
-      Node curr = root;
-      while (curr != null) { // N branches
-        if (curr.value == v) { // N-1 branches
-          return true;
-        } else if (curr.value < v) { // N-1 branches
-          curr = curr.right;
-        } else {
-          curr = curr.left;
-        }
+      for (int i = 0; i < N; i++) {
+        if (visited[i]) continue;
+
+        visited[i] = true;
+        search(i, length + D[src][i], nLeft - 1);
+        visited[i] = false;
       }
-      return false;
     }
   }
 
-  public static void main(int N, int x, int[] ns) {
+  public static void main(int N, int[][] D) {
     //final int N = Verifier.nondetInt();
-
-    if (ns == null || ns.length != N)
+    //Verifier.assume(N > 0);
+    if (! (N>0))
        return ;
+
+    //int D[][] = new int[N][N];
+    if (D == null || D.length != N)
+       return ;
+    for (int k = 0; k<N; k++)
+       if (D[k] == null || D[k].length != N)
+          return ;
+
+    for (int i = 0; i < N; i++) {
+      for (int j = 0; j < N; j++) {
+        //int next = Verifier.nondetInt();
+        //Verifier.assume(next >= 0);
+        //D[i][j] = next;
+        if (! (D[i][j] >= 0))
+           return ;
+      }
+    }
 
     try {
       // adding a dummy statement to side-step MAZE try-catch mysterious bug
       int dummy = 0 ;
       
-      BinaryTree b = new BinaryTree();
-
-      for (int i = 1; i < N; i++) {
-        //b.insert(Verifier.nondetInt());
-        b.insert(ns[i]) ;
-      }
-
-      // We only measure the complexity (i.e. path length) of the
-      // final search operation.  That is, we count branches only
-      // from this point forward in the execution.
-      // Concolic.ResetBranchCounting();
-
-      //b.search(Verifier.nondetInt());
-      b.search(x);
+      TspSolver tspSolver = new TspSolver(N, D);
+      tspSolver.solve();
     } catch (Exception e) {
       assert false;
     }
   }
 }
+;

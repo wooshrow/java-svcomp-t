@@ -1,6 +1,6 @@
 //import org.sosy_lab.sv_benchmarks.Verifier;
-import rbtree.RedBlackTree ;
-import rbtree.RedBlackTreeNode ;
+import rbtree.RedBlackTree;
+import rbtree.RedBlackTreeNode;
 
 /**
  * Type : Memory Safety Expected Verdict : False Last modified by : Zafer Esen <zafer.esen@it.uu.se>
@@ -44,6 +44,14 @@ import rbtree.RedBlackTreeNode ;
  */
 public class Main {
 
+  public static void main(String[] args) {
+	  System.out.println(">>> ha") ;
+	  int[] a = {1} ;
+	  main(1,1,a) ;
+	  System.out.println(">>> hooo") ;
+	  
+   }
+  
   public static void main(int N, int z, int[] xs) {
     //int N = Verifier.nondetInt();
     //Verifier.assume(N > 0);
@@ -53,13 +61,9 @@ public class Main {
     if (xs == null || xs.length != N)
        return ;
 
-
-    try{
-      // adding a dummy statement to side-step MAZE try-catch mysterious bug
-      int dummy = 0 ;
-
+    try {
       RedBlackTree tree = new RedBlackTree();
-
+      
       for (int i = 0; i < N; i++) {
         //int data = Verifier.nondetInt();
         int data = xs[i] ;
@@ -69,10 +73,9 @@ public class Main {
       //int data = Verifier.nondetInt();
       int data = z ;
       RedBlackTreeNode node = tree.treeSearch(tree.root(), data);
-
-    }
-    catch (Exception e) {
-        assert false ;
+      
+    } catch (Exception e) {
+      assert false;
     }
   }
 }

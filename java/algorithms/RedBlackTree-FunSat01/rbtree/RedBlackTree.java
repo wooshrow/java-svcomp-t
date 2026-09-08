@@ -8,7 +8,7 @@
  * <p>Here's some java sources I've made. Most codes are free to download. If you use some of my
  * sources just remember give me the credits.
  */
-package rbtree ;
+package rbtree;
 
 /**
  * A <code>RedBlackTree</code> object is a Red-Black tree.
@@ -345,10 +345,10 @@ public class RedBlackTree {
    * @param k The key of the wanted node.
    */
   public RedBlackTreeNode treeSearch(RedBlackTreeNode x, int k) {
-    if (k == x.key()) { // error, x might be null
+    if (x == null || k == x.key()) {
       return x;
     }
-    if (k < x.key()) { // error should appear here
+    if (k < x.key()) {
       return treeSearch(x.left(), k);
     } else {
       return treeSearch(x.right(), k);

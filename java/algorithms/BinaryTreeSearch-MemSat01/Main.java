@@ -1,7 +1,7 @@
 //import org.sosy_lab.sv_benchmarks.Verifier;
 
 /**
- * Type : Memory Safety Expected Verdict : False Last modified by : Zafer Esen <zafer.esen@it.uu.se>
+ * Type : Memory Safety Expected Verdict : True Last modified by : Zafer Esen <zafer.esen@it.uu.se>
  * Date : 9 October 2019
  *
  * <p>Original license follows.
@@ -67,7 +67,7 @@ public class Main {
       Node curr = root;
       while (true) {
         if (curr.value < v) {
-          if (curr.right == null) { // error, should be "!="
+          if (curr.right != null) {
             curr = curr.right;
           } else {
             curr.right = new Node(v, null, null);
@@ -104,7 +104,6 @@ public class Main {
 
   public static void main(int N, int x, int[] ns) {
     //final int N = Verifier.nondetInt();
-
     if (ns == null || ns.length != N)
        return ;
 
@@ -113,7 +112,6 @@ public class Main {
       int dummy = 0 ;
       
       BinaryTree b = new BinaryTree();
-
       for (int i = 1; i < N; i++) {
         //b.insert(Verifier.nondetInt());
         b.insert(ns[i]) ;

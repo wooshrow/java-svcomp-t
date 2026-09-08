@@ -1,12 +1,8 @@
 //import org.sosy_lab.sv_benchmarks.Verifier;
-import rbtree.RedBlackTree ;
-import rbtree.RedBlackTreeNode ;
 
 /**
- * Type : Memory Safety Expected Verdict : False Last modified by : Zafer Esen <zafer.esen@it.uu.se>
- * Date : 9 October 2019
- *
- * <p>Note: error is introduced in RedBlackTree.java:358
+ * Type : Functional Safety Expected Verdict : True Last modified by : Zafer Esen
+ * <zafer.esen@it.uu.se> Date : 9 October 2019
  *
  * <p>Original license follows.
  */
@@ -38,41 +34,48 @@ import rbtree.RedBlackTreeNode ;
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/**
- * @author Koushik Sen <ksen@cs.berkeley.edu>
- * @author Jacob Burnim <jburnim@cs.berkeley.edu>
- */
+/** @author Jacob Burnim <jburnim@cs.berkeley.edu> */
 public class Main {
 
-  public static void main(int N, int z, int[] xs) {
-    //int N = Verifier.nondetInt();
-    //Verifier.assume(N > 0);
-    if (N <= 0)
-       return ;
+  private static class List {
+    public int x;
+    public List next;
 
-    if (xs == null || xs.length != N)
-       return ;
+    private static final int SENTINEL = Integer.MAX_VALUE;
 
+    private List(int x, List next) {
+      this.x = x;
+      this.next = next;
+    }
 
-    try{
-      // adding a dummy statement to side-step MAZE try-catch mysterious bug
-      int dummy = 0 ;
+    List() {
+      this(SENTINEL, null);
+    }
 
-      RedBlackTree tree = new RedBlackTree();
-
-      for (int i = 0; i < N; i++) {
-        //int data = Verifier.nondetInt();
-        int data = xs[i] ;
-        tree.treeInsert(new RedBlackTreeNode(data));
+    void insert(int data) {
+      if (data > this.x) {
+        next.insert(data);
+      } else {
+        next = new List(x, next);
+        x = data;
       }
-
-      //int data = Verifier.nondetInt();
-      int data = z ;
-      RedBlackTreeNode node = tree.treeSearch(tree.root(), data);
-
     }
-    catch (Exception e) {
-        assert false ;
-    }
+  }
+
+  public static void main(int N, int[] a) {
+    //final int N = Verifier.nondetInt();
+    //Verifier.assume(N > 1);
+    if (! (N>1))
+      return ;
+
+    if (a == null || a.length != N)
+        return ;
+
+    List list = new List();
+    for (int i = 0; i < N; i++)
+       //list.insert(Verifier.nondetInt());
+       list.insert(a[i]) ;
+
+    assert (list.x <= list.next.x);
   }
 }

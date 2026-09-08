@@ -87,7 +87,7 @@ public class Main {
   public static void main(int V, int[] D) {
     //final int V = Verifier.nondetInt();
     //Verifier.assume(V > 0 && V < 46341); // V*V < Integer.MAX_VALUE
-    if (!(V > 0 && V < 1000000))
+    if (!(V > 0 && V < 46341))
       return ;
 
     //final int D[] = new int[V * V];

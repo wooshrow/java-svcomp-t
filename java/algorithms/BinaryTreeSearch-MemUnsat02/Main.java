@@ -109,6 +109,9 @@ public class Main {
        return ;
 
     try {
+      // adding a dummy statement to side-step MAZE try-catch mysterious bug
+      int dummy = 0 ;
+      
       BinaryTree b = new BinaryTree();
       for (int i = 1; i < N; i++)
         //b.insert(Verifier.nondetInt());

@@ -5,27 +5,45 @@ import os
 from pathlib import Path
 import subprocess
 import shutil
+import sys
+sys.path.insert(0, "../lib")
+import muBenchExec
+
 toolname = "maze"
 
-def toolrun(benchhomeDir,task,tasktype):
+def toolrun(benchhomeDir,problem,tasktype):
    tooldir = Path(".")
    tooljar = f"{tooldir}/maze-1.1.2-jar-with-dependencies.jar"
-   CUTclassdir = benchhomeDir / task / "classes"
-   outputdir = tooldir / "out" / task
+   CUTclassdir = benchhomeDir / problem / "classes"
+   outputdir = tooldir / "out" / problem
    if outputdir.exists():
       shutil.rmtree(outputdir)
    os.makedirs(outputdir)
+   #print(f">>> {CUTclassdir}")
    # print(f"* Running {toolname} on {task}...")
+
+   if tasktype.endswith("valid-assert") :
+      errorTypeToFind = "AssertionError"
+   elif tasktype.endswith("no-runtime-exception") :
+      errorTypeToFind = "UnexpectedException"
+   else :
+      print("* Unknown task-type! Aborting.")
+      return "Unknown task-type."
+
    sp =  subprocess.run(["java",
             "-ea",
+            #"-cp", f"{CUTclassdir}",
             "-jar", tooljar,
             f"-c={CUTclassdir}",
             "-n=Main",
             "-m=main",
             f"-o={outputdir}",
             "--verificationMode=1",
-            "--error-type-to-find=AssertionError" if tasktype.endswith("valid-assert") else "--error-type-to-find=UnexpectedException",
-            "--minimalistic-suite=true",
+            f"--error-type-to-find={errorTypeToFind}",
+            # well... it is a verification task, so we won't bother to minimize.
+            # actually, we should not minimize to ensure the verification is as
+            # exhaustive as it can, within the given bounds
+            #"--minimalistic-suite=true",
             "-s=BFS",
             "-b=60",
             "--max-depth=400",
@@ -34,15 +52,40 @@ def toolrun(benchhomeDir,task,tasktype):
             "--check-divbyZero=true"
             ],
             capture_output=True)
-   o1 = str(sp.stdout)
+   o1 = str(sp.stdout).splitlines()
    N = len(o1)
-   verdict = True # no error found
+   verdict = "CRASH" # no error found
    for i in range(N - 1, -1, -1):
-      if "ERROR" in str(o1) :
+      r = o1[i]
+      if "Verification" in r and "ERROR" in r :
           verdict = False
+          break
+      if "Verification" in r and "PASS" in r :
+          verdict = True
           break
    #print(f">>> {verdict}")
    if (tooldir / "logs").exists() :
        # move logs:
        subprocess.run(["mv", f"{tooldir / "logs"}", f"{outputdir}/"])
    return verdict
+
+def runBench(taskType):
+    muBenchExec.runBench(toolrun,toolname,taskType)
+
+#
+# run the benchmark. Syntax:
+#     runBench(task-type).
+#  Or from cmd-line:
+#     >pyhton Runtool.py <task-type>
+#
+# Available task-types:
+#    true-valid-assert
+#    false-valid-assert
+#    true-no-runtime-exception
+#    false-no-runtime-exception
+#
+if __name__ == '__main__':
+   theTaskType = "false-valid-assert"
+   if len(sys.argv) > 1 :
+      theTaskType = sys.argv[1]
+   runBench(theTaskType)

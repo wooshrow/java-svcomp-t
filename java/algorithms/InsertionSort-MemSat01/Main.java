@@ -1,12 +1,8 @@
 //import org.sosy_lab.sv_benchmarks.Verifier;
-import rbtree.RedBlackTree ;
-import rbtree.RedBlackTreeNode ;
 
 /**
- * Type : Memory Safety Expected Verdict : False Last modified by : Zafer Esen <zafer.esen@it.uu.se>
+ * Type : Memory Safety Expected Verdict : True Last modified by : Zafer Esen <zafer.esen@it.uu.se>
  * Date : 9 October 2019
- *
- * <p>Note: error is introduced in RedBlackTree.java:358
  *
  * <p>Original license follows.
  */
@@ -38,41 +34,40 @@ import rbtree.RedBlackTreeNode ;
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/**
- * @author Koushik Sen <ksen@cs.berkeley.edu>
- * @author Jacob Burnim <jburnim@cs.berkeley.edu>
- */
+/** @author Jacob Burnim <jburnim@cs.berkeley.edu> */
 public class Main {
 
-  public static void main(int N, int z, int[] xs) {
+  //public static void sort(int[] a) {
+  static void sort(int[] a) {
+    final int N = a.length;
+    for (int i = 1; i < N; i++) { // N branches
+      int j = i - 1;
+      int x = a[i];
+      // First branch (j >= 0):  2 + 3 + ... + N = N(N+1)/2 - 1 branches
+      // Second branch (a[j] > x):  1 + 2 + ... + N-1 = (N-1)N/2 branches
+      while ((j >= 0) && (a[j] > x)) {
+        a[j + 1] = a[j];
+        j--;
+      }
+      a[j + 1] = x;
+    }
+  }
+
+  public static void main(int N) {
     //int N = Verifier.nondetInt();
     //Verifier.assume(N > 0);
-    if (N <= 0)
+    if (! (N>0))
        return ;
 
-    if (xs == null || xs.length != N)
-       return ;
-
-
-    try{
-      // adding a dummy statement to side-step MAZE try-catch mysterious bug
-      int dummy = 0 ;
-
-      RedBlackTree tree = new RedBlackTree();
-
-      for (int i = 0; i < N; i++) {
-        //int data = Verifier.nondetInt();
-        int data = xs[i] ;
-        tree.treeInsert(new RedBlackTreeNode(data));
-      }
-
-      //int data = Verifier.nondetInt();
-      int data = z ;
-      RedBlackTreeNode node = tree.treeSearch(tree.root(), data);
-
+    int a[] = new int[N];
+    for (int i = 0; i < N; i++) {
+      a[i] = N - i;
     }
-    catch (Exception e) {
-        assert false ;
+
+    try {
+       sort(a);
+    } catch (Exception e) {
+      assert false;
     }
   }
 }

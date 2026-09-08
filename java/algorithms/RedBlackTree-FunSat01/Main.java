@@ -1,12 +1,10 @@
 //import org.sosy_lab.sv_benchmarks.Verifier;
-import rbtree.RedBlackTree ;
-import rbtree.RedBlackTreeNode ;
+import rbtree.RedBlackTree;
+import rbtree.RedBlackTreeNode;
 
 /**
- * Type : Memory Safety Expected Verdict : False Last modified by : Zafer Esen <zafer.esen@it.uu.se>
- * Date : 9 October 2019
- *
- * <p>Note: error is introduced in RedBlackTree.java:358
+ * Type : Functional Safety Expected Verdict : True Last modified by : Zafer Esen
+ * <zafer.esen@it.uu.se> Date : 9 October 2019
  *
  * <p>Original license follows.
  */
@@ -43,36 +41,21 @@ import rbtree.RedBlackTreeNode ;
  * @author Jacob Burnim <jburnim@cs.berkeley.edu>
  */
 public class Main {
-
-  public static void main(int N, int z, int[] xs) {
+  public static void main(int N, int data) {
     //int N = Verifier.nondetInt();
     //Verifier.assume(N > 0);
     if (N <= 0)
        return ;
 
-    if (xs == null || xs.length != N)
-       return ;
+    RedBlackTree tree = new RedBlackTree();
 
+    for (int i = 0; i < N; i++) tree.treeInsert(new RedBlackTreeNode(i));
 
-    try{
-      // adding a dummy statement to side-step MAZE try-catch mysterious bug
-      int dummy = 0 ;
-
-      RedBlackTree tree = new RedBlackTree();
-
-      for (int i = 0; i < N; i++) {
-        //int data = Verifier.nondetInt();
-        int data = xs[i] ;
-        tree.treeInsert(new RedBlackTreeNode(data));
-      }
-
-      //int data = Verifier.nondetInt();
-      int data = z ;
-      RedBlackTreeNode node = tree.treeSearch(tree.root(), data);
-
-    }
-    catch (Exception e) {
-        assert false ;
-    }
+    //int data = Verifier.nondetInt();
+    //Verifier.assume(data >= 0 && data < N);
+    if (! (data >= 0 && data < N))
+        return ;
+    RedBlackTreeNode node = tree.treeSearch(tree.root(), data);
+    assert (node != null);
   }
 }

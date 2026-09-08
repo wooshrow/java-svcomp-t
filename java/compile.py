@@ -14,14 +14,15 @@ def compile() :
    o2 = sp.stderr
    isVersion8 = "javac 1.8" in str(o1) or "javac 1.8" in str(o2)
    if not isVersion8:
-       print("The current javac is not java-8. Aborting.")
-       return
+       #print("The current javac is not java-8. Aborting.")
+       #return
+       print("WARNING: the current javac is not java-8. Some verification tool may not be able to handle higher version of Java.")
 
    # reading the task-list
-   with open("tasks.list") as f :
-     tasks = [t.strip() for t in f  if not t.strip().startswith("#")]
-   print(f"== {len(tasks)} tasks")
-   for T in tasks:
+   with open("problems.list") as f :
+     problems = [t.strip() for t in f  if not t.strip().startswith("#")]
+   print(f"== {len(problems)} problems")
+   for T in problems:
      path = Path(T)
      if (not path.exists()):
          print(f"* {path} does not exist. Igored.")
