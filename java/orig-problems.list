@@ -1,0 +1,68 @@
+# =========
+# the algorithms group
+# =========
+algorithms/BellmanFord-FunSat01
+algorithms/BellmanFord-FunSat02
+algorithms/BellmanFord-FunUnsat01
+algorithms/BellmanFord-FunUnsat02
+algorithms/BellmanFord-MemSat01
+algorithms/BellmanFord-MemSat02
+algorithms/BellmanFord-MemUnsat01
+algorithms/BellmanFord-MemUnsat02
+algorithms/BinaryTreeSearch-FunSat01
+algorithms/BinaryTreeSearch-FunUnsat01
+algorithms/BinaryTreeSearch-MemSat01
+algorithms/BinaryTreeSearch-MemUnsat01
+algorithms/BinaryTreeSearch-MemUnsat02
+algorithms/InsertionSort-FunSat01
+algorithms/InsertionSort-FunSat02
+algorithms/InsertionSort-FunUnsat01
+algorithms/InsertionSort-MemSat01
+algorithms/InsertionSort-MemUnsat01
+algorithms/MergeSortIterative-FunSat01
+algorithms/MergeSortIterative-FunSat02
+algorithms/MergeSortIterative-FunUnsat01
+algorithms/MergeSortIterative-MemSat01
+algorithms/MergeSortIterative-MemUnsat01
+algorithms/RedBlackTree-FunSat01
+algorithms/RedBlackTree-FunUnsat01
+algorithms/RedBlackTree-MemSat01
+algorithms/RedBlackTree-MemUnsat01
+algorithms/SortedListInsert-FunSat01
+algorithms/SortedListInsert-FunUnsat01
+algorithms/SortedListInsert-MemSat01
+algorithms/SortedListInsert-MemUnsat01
+algorithms/Trie-FunSat01
+algorithms/Trie-FunUnsat01
+algorithms/Trie-MemSat01
+algorithms/Trie-MemUnsat01
+algorithms/Tsp-FunSat01
+algorithms/Tsp-FunUnsat01
+algorithms/Tsp-MemSat01
+algorithms/Tsp-MemUnsat01
+# =========
+# jayhorn-recursive
+# =========
+jayhorn-recursive/Ackermann01
+jayhorn-recursive/Addition
+jayhorn-recursive/InfiniteLoop
+jayhorn-recursive/SatAckermann01
+jayhorn-recursive/SatAckermann02
+jayhorn-recursive/SatAckermann03
+jayhorn-recursive/SatAddition01
+jayhorn-recursive/SatEvenOdd01
+jayhorn-recursive/SatFibonacci01
+jayhorn-recursive/SatFibonacci02
+jayhorn-recursive/SatFibonacci03
+jayhorn-recursive/SatGcd
+jayhorn-recursive/SatHanoi01
+jayhorn-recursive/SatMccarthy91
+jayhorn-recursive/SatMultCommutative01
+jayhorn-recursive/SatPrimes01
+jayhorn-recursive/UnsatAckermann01
+jayhorn-recursive/UnsatAddition01
+jayhorn-recursive/UnsatAddition02
+jayhorn-recursive/UnsatEvenOdd01
+jayhorn-recursive/UnsatFibonacci01
+jayhorn-recursive/UnsatFibonacci02
+jayhorn-recursive/UnsatMccarthy91

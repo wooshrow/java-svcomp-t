@@ -5,6 +5,19 @@ import subprocess
 import time
 import yaml
 
+import logging
+logging.basicConfig(
+   format="{asctime} {levelname}: {message}",
+   style="{",
+   datefmt="%Y-%m-%d %H:%M",
+   level=logging.INFO,
+   filename="svcomp.log",
+   encoding="utf-8",
+   filemode="a",
+   )
+
+logging.getLogger().addHandler(logging.StreamHandler())
+
 benchhomeDir = Path("../../java")
 
 def isTaskTypePresent(problem,taskType):
@@ -18,7 +31,7 @@ def isTaskTypePresent(problem,taskType):
         expectedVerdict = False
         taskType_ = taskType[6:]
     else:
-        print (f"* Can't check tasks of that type: {taskType}!")
+        logging.error(f"* Can't check tasks of that type: {taskType}!")
         return False
 
     # get task's yaml property-file:
@@ -41,7 +54,7 @@ def getProblems(taskType):
     return [ P for P in problems if isTaskTypePresent(P,taskType)]
 
 
-def runBench(tool,toolname,taskType) :
+def runBench(tool,toolname,taskType,timebudget) :
     """
     Run the benchmark. Tasks to run are as listed in projecthome/java/tasks.list.
 
@@ -49,9 +62,10 @@ def runBench(tool,toolname,taskType) :
     the name of the tool (just for the purpose of reporting), and the task type
     to run. The tool-function is of the form:
 
-        tool(bmhome,problem,taskType)
+        tool(bmhome,problem,taskType,timebudget)
 
-    This should run the intended tool on the problem, with the specified task-type.
+    This should run the intended tool on the problem, with the specified task-type and
+    specified time budget (in second).
     The function returns either true (the subject program shows no violation of
     type as specified by the taskType), false (the subject program shows a violation),
     or "CRASH".
@@ -75,25 +89,25 @@ def runBench(tool,toolname,taskType) :
     problems = getProblems(taskType)
     testedTasks = 0
     correct = 0
-    print(f"== start benchmarking {toolname}; task: {taskType}")
+    logging.info(f"== START benchmarking. tool:{toolname}, tasktype:{taskType}")
     for P in problems:
       path = benchhomeDir / Path(P)
       if (not path.exists()):
-          print(f"* {path} does not exist. Ignored.")
+          logging.warning(f"* {path} does not exist. Ignored.")
           continue
       testedTasks += 1
 
-      print(f"* problem {P}")
+      #logging.info(f"* {P}")
 
       starttime = time.time()
       try :
-         verdict = tool(benchhomeDir.absolute(),P,taskType)
+         # giving extra 10s to the tool to close
+         verdict = tool(benchhomeDir.absolute(),P,taskType,timebudget+10)
          duration = time.time() - starttime
       except :
          verdict = "CRASH"
          duration = None
-      print(f"  expectded verdict:{expectedVerdict}, {toolname}:{verdict}. T={duration}")
+      logging.info(f"P:{P},  verdict:{verdict}, expecting:{expectedVerdict}, T={round(duration,3)}")
       if verdict==expectedVerdict : correct += 1
-    print("==")
-    print(f"== {taskType} task, #problems:{len(problems)}, tested:{testedTasks}, correct:{correct}")
-    print("==")
+    logging.info("== END")
+    logging.info(f"== tasktype:{taskType}, #problems:{len(problems)}, tested:{testedTasks}, correct:{correct}")
