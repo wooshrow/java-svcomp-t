@@ -10,8 +10,7 @@
 
 public class Main {
 
-  //public static int addition(int m, int n) {
-  static int addition(int m, int n) {
+  public static int addition(int m, int n) {
     if (n == 0) {
       return m;
     }
