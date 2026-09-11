@@ -34,7 +34,7 @@ def toolrun(benchhomeDir,problem,tasktype,timebudget):
                      This is projectdir/java
 
       problem : a directory containing the program to verify. A problem contains a Main.java file,
-             containing a main-method, which is the entry point for verification. The
+             containing a static main-method, which is the entry point for verification. The
              method may contain an assert. A verification task could be to verify that the assert is
              never violated, or to verify that the assert is violated.
 

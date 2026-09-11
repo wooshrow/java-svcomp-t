@@ -20,8 +20,7 @@
  */
 public class Main {
 
-  //public static double myDeriv(double function) {
-  static double myDeriv(double function) {
+  public static double myDeriv(double function) {
     double derivative;
     // the function
     derivative = -9.8 - .002 * (Math.pow(function, 2) / .11);
@@ -29,8 +28,7 @@ public class Main {
     return derivative;
   }
 
-  //public static void euler(double y) {
-  static void euler(double y) {
+  public static void euler(double y) {
     double step = .1;
     double n = 10;
     for (int i = 0; i < n; i++) {
