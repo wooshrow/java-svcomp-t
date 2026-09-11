@@ -174,3 +174,168 @@
 2026-09-10 14:24 INFO: P:algorithms/MergeSortIterative-FunSat02,  verdict:True, expecting:True, T=61.046
 2026-09-10 14:24 INFO: == END
 2026-09-10 14:24 INFO: == tasktype:true-no-runtime-exception, #problems:4, tested:4, correct:4
+2026-09-10 15:29 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 15:29 INFO: P:float-nonlinear-calculation/EulerMethod,  verdict:False, expecting:False, T=1.482
+2026-09-10 15:29 INFO: == END
+2026-09-10 15:29 INFO: == tasktype:false-valid-assert, #problems:1, tested:1, correct:1
+2026-09-10 15:32 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 15:32 INFO: P:float-nonlinear-calculation/EulerMethod,  verdict:False, expecting:False, T=1.664
+2026-09-10 15:32 INFO: == END
+2026-09-10 15:32 INFO: == tasktype:false-valid-assert, #problems:1, tested:1, correct:1
+2026-09-10 16:37 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 16:37 INFO: P:float-nonlinear-calculation/EulerMethod,  verdict:False, expecting:False, T=1.529
+2026-09-10 16:37 INFO: P:float-nonlinear-calculation/MathSin,  verdict:False, expecting:False, T=1.062
+2026-09-10 16:37 INFO: == END
+2026-09-10 16:37 INFO: == tasktype:false-valid-assert, #problems:2, tested:2, correct:2
+2026-09-10 16:40 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 16:40 INFO: P:float-nonlinear-calculation/EulerMethod,  verdict:False, expecting:False, T=1.499
+2026-09-10 16:40 INFO: P:float-nonlinear-calculation/MathSin,  verdict:False, expecting:False, T=1.134
+2026-09-10 16:40 INFO: == END
+2026-09-10 16:40 INFO: == tasktype:false-valid-assert, #problems:2, tested:2, correct:2
+2026-09-10 16:41 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 16:41 INFO: P:float-nonlinear-calculation/MathSin,  verdict:False, expecting:False, T=1.364
+2026-09-10 16:41 INFO: == END
+2026-09-10 16:41 INFO: == tasktype:false-valid-assert, #problems:1, tested:1, correct:1
+2026-09-10 16:42 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 16:42 INFO: P:float-nonlinear-calculation/MathSin,  verdict:False, expecting:False, T=1.145
+2026-09-10 16:42 INFO: == END
+2026-09-10 16:42 INFO: == tasktype:false-valid-assert, #problems:1, tested:1, correct:1
+2026-09-10 16:43 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 16:43 INFO: P:float-nonlinear-calculation/MathSin,  verdict:False, expecting:False, T=1.615
+2026-09-10 16:43 INFO: == END
+2026-09-10 16:43 INFO: == tasktype:false-valid-assert, #problems:1, tested:1, correct:1
+2026-09-10 16:44 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 16:44 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 16:44 INFO: P:float-nonlinear-calculation/MathSin,  verdict:False, expecting:False, T=1.051
+2026-09-10 16:44 INFO: == END
+2026-09-10 16:44 INFO: == tasktype:false-valid-assert, #problems:1, tested:1, correct:1
+2026-09-10 16:46 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 16:46 INFO: P:float-nonlinear-calculation/MathSin,  verdict:False, expecting:False, T=1.723
+2026-09-10 16:46 INFO: == END
+2026-09-10 16:46 INFO: == tasktype:false-valid-assert, #problems:1, tested:1, correct:1
+2026-09-10 16:47 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 16:47 INFO: P:float-nonlinear-calculation/MathSin,  verdict:False, expecting:False, T=1.645
+2026-09-10 16:47 INFO: == END
+2026-09-10 16:47 INFO: == tasktype:false-valid-assert, #problems:1, tested:1, correct:1
+2026-09-10 16:48 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 16:48 INFO: P:float-nonlinear-calculation/MathSin,  verdict:True, expecting:False, T=1.696
+2026-09-10 16:48 INFO: == END
+2026-09-10 16:48 INFO: == tasktype:false-valid-assert, #problems:1, tested:1, correct:0
+2026-09-10 16:49 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 16:49 INFO: P:float-nonlinear-calculation/MathSin,  verdict:True, expecting:False, T=1.424
+2026-09-10 16:49 INFO: == END
+2026-09-10 16:49 INFO: == tasktype:false-valid-assert, #problems:1, tested:1, correct:0
+2026-09-10 16:50 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 16:50 INFO: P:float-nonlinear-calculation/MathSin,  verdict:True, expecting:False, T=1.721
+2026-09-10 16:50 INFO: == END
+2026-09-10 16:50 INFO: == tasktype:false-valid-assert, #problems:1, tested:1, correct:0
+2026-09-10 16:50 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 16:50 INFO: P:float-nonlinear-calculation/MathSin,  verdict:True, expecting:False, T=1.13
+2026-09-10 16:50 INFO: == END
+2026-09-10 16:50 INFO: == tasktype:false-valid-assert, #problems:1, tested:1, correct:0
+2026-09-10 16:51 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 16:51 INFO: P:float-nonlinear-calculation/MathSin,  verdict:True, expecting:False, T=1.111
+2026-09-10 16:51 INFO: == END
+2026-09-10 16:51 INFO: == tasktype:false-valid-assert, #problems:1, tested:1, correct:0
+2026-09-10 16:51 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 16:51 INFO: P:float-nonlinear-calculation/MathSin,  verdict:True, expecting:False, T=1.458
+2026-09-10 16:51 INFO: == END
+2026-09-10 16:51 INFO: == tasktype:false-valid-assert, #problems:1, tested:1, correct:0
+2026-09-10 16:52 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 16:52 INFO: P:float-nonlinear-calculation/EulerMethod,  verdict:False, expecting:False, T=0.992
+2026-09-10 16:52 INFO: P:float-nonlinear-calculation/MathSin,  verdict:True, expecting:False, T=1.208
+2026-09-10 16:52 INFO: == END
+2026-09-10 16:52 INFO: == tasktype:false-valid-assert, #problems:2, tested:2, correct:1
+2026-09-10 16:54 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 16:54 INFO: P:float-nonlinear-calculation/EulerMethod,  verdict:False, expecting:False, T=1.488
+2026-09-10 16:54 INFO: P:float-nonlinear-calculation/MathSin,  verdict:True, expecting:False, T=1.143
+2026-09-10 16:54 INFO: == END
+2026-09-10 16:54 INFO: == tasktype:false-valid-assert, #problems:2, tested:2, correct:1
+2026-09-10 16:56 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 16:56 INFO: P:float-nonlinear-calculation/EulerMethod,  verdict:False, expecting:False, T=1.539
+2026-09-10 16:56 INFO: P:float-nonlinear-calculation/MathSin,  verdict:True, expecting:False, T=1.064
+2026-09-10 16:56 INFO: == END
+2026-09-10 16:56 INFO: == tasktype:false-valid-assert, #problems:2, tested:2, correct:1
+2026-09-10 16:58 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 16:58 INFO: P:float-nonlinear-calculation/EulerMethod,  verdict:False, expecting:False, T=1.467
+2026-09-10 16:58 INFO: P:float-nonlinear-calculation/MathSin,  verdict:True, expecting:False, T=1.055
+2026-09-10 17:00 INFO: P:float-nonlinear-calculation/Optimization1,  verdict:TIMEOUT, expecting:False, T=70.032
+2026-09-10 17:00 INFO: == END
+2026-09-10 17:00 INFO: == tasktype:false-valid-assert, #problems:3, tested:3, correct:1
+2026-09-10 17:03 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 17:03 INFO: P:float-nonlinear-calculation/EulerMethod,  verdict:False, expecting:False, T=1.521
+2026-09-10 17:03 INFO: P:float-nonlinear-calculation/MathSin,  verdict:True, expecting:False, T=1.473
+2026-09-10 17:04 INFO: P:float-nonlinear-calculation/Optimization1,  verdict:TIMEOUT, expecting:False, T=70.043
+2026-09-10 17:05 INFO: P:float-nonlinear-calculation/Optimization2,  verdict:TIMEOUT, expecting:False, T=70.079
+2026-09-10 17:05 INFO: == END
+2026-09-10 17:05 INFO: == tasktype:false-valid-assert, #problems:4, tested:4, correct:1
+2026-09-10 17:08 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 17:08 INFO: P:float-nonlinear-calculation/EulerMethod,  verdict:False, expecting:False, T=1.59
+2026-09-10 17:08 INFO: P:float-nonlinear-calculation/MathSin,  verdict:True, expecting:False, T=1.21
+2026-09-10 17:09 INFO: P:float-nonlinear-calculation/Optimization1,  verdict:TIMEOUT, expecting:False, T=69.956
+2026-09-10 17:10 INFO: P:float-nonlinear-calculation/Optimization2,  verdict:TIMEOUT, expecting:False, T=70.067
+2026-09-10 17:10 INFO: P:float-nonlinear-calculation/coral1,  verdict:False, expecting:False, T=1.367
+2026-09-10 17:10 INFO: == END
+2026-09-10 17:10 INFO: == tasktype:false-valid-assert, #problems:5, tested:5, correct:2
+2026-09-10 17:15 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 17:15 INFO: P:float-nonlinear-calculation/EulerMethod,  verdict:False, expecting:False, T=1.365
+2026-09-10 17:15 INFO: P:float-nonlinear-calculation/MathSin,  verdict:True, expecting:False, T=2.45
+2026-09-10 17:16 INFO: P:float-nonlinear-calculation/Optimization1,  verdict:TIMEOUT, expecting:False, T=70.034
+2026-09-10 17:17 INFO: P:float-nonlinear-calculation/Optimization2,  verdict:TIMEOUT, expecting:False, T=70.094
+2026-09-10 17:17 INFO: P:float-nonlinear-calculation/coral1,  verdict:False, expecting:False, T=2.059
+2026-09-10 17:17 INFO: P:float-nonlinear-calculation/coral10,  verdict:True, expecting:False, T=2.126
+2026-09-10 17:17 INFO: == END
+2026-09-10 17:17 INFO: == tasktype:false-valid-assert, #problems:6, tested:6, correct:2
+2026-09-10 17:29 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 17:29 INFO: P:float-nonlinear-calculation/EulerMethod,  verdict:False, expecting:False, T=1.477
+2026-09-10 17:29 INFO: P:float-nonlinear-calculation/MathSin,  verdict:True, expecting:False, T=1.076
+2026-09-10 17:30 INFO: P:float-nonlinear-calculation/Optimization1,  verdict:TIMEOUT, expecting:False, T=70.06
+2026-09-10 17:31 INFO: P:float-nonlinear-calculation/Optimization2,  verdict:TIMEOUT, expecting:False, T=70.077
+2026-09-10 17:31 INFO: P:float-nonlinear-calculation/coral1,  verdict:False, expecting:False, T=1.366
+2026-09-10 17:31 INFO: P:float-nonlinear-calculation/coral10,  verdict:True, expecting:False, T=1.761
+2026-09-10 17:31 INFO: P:float-nonlinear-calculation/coral11,  verdict:False, expecting:False, T=1.332
+2026-09-10 17:31 INFO: == END
+2026-09-10 17:31 INFO: == tasktype:false-valid-assert, #problems:7, tested:7, correct:3
+2026-09-10 17:34 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 17:34 INFO: P:float-nonlinear-calculation/EulerMethod,  verdict:False, expecting:False, T=1.447
+2026-09-10 17:34 INFO: P:float-nonlinear-calculation/MathSin,  verdict:True, expecting:False, T=1.288
+2026-09-10 17:35 INFO: P:float-nonlinear-calculation/Optimization1,  verdict:TIMEOUT, expecting:False, T=70.032
+2026-09-10 17:36 INFO: P:float-nonlinear-calculation/Optimization2,  verdict:TIMEOUT, expecting:False, T=70.068
+2026-09-10 17:36 INFO: P:float-nonlinear-calculation/coral1,  verdict:False, expecting:False, T=1.198
+2026-09-10 17:36 INFO: P:float-nonlinear-calculation/coral10,  verdict:True, expecting:False, T=1.767
+2026-09-10 17:36 INFO: P:float-nonlinear-calculation/coral11,  verdict:False, expecting:False, T=1.341
+2026-09-10 17:36 INFO: P:float-nonlinear-calculation/coral12,  verdict:False, expecting:False, T=1.586
+2026-09-10 17:36 INFO: == END
+2026-09-10 17:36 INFO: == tasktype:false-valid-assert, #problems:8, tested:8, correct:4
+2026-09-10 17:37 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 17:37 INFO: P:float-nonlinear-calculation/EulerMethod,  verdict:False, expecting:False, T=1.07
+2026-09-10 17:37 INFO: P:float-nonlinear-calculation/MathSin,  verdict:True, expecting:False, T=1.318
+2026-09-10 17:39 INFO: P:float-nonlinear-calculation/Optimization1,  verdict:TIMEOUT, expecting:False, T=70.036
+2026-09-10 17:40 INFO: P:float-nonlinear-calculation/Optimization2,  verdict:TIMEOUT, expecting:False, T=70.1
+2026-09-10 17:40 INFO: P:float-nonlinear-calculation/coral1,  verdict:False, expecting:False, T=1.649
+2026-09-10 17:40 INFO: P:float-nonlinear-calculation/coral10,  verdict:True, expecting:False, T=2.7
+2026-09-10 17:40 INFO: P:float-nonlinear-calculation/coral11,  verdict:False, expecting:False, T=1.89
+2026-09-10 17:40 INFO: P:float-nonlinear-calculation/coral12,  verdict:False, expecting:False, T=1.231
+2026-09-10 17:40 INFO: P:float-nonlinear-calculation/coral13,  verdict:False, expecting:False, T=1.167
+2026-09-10 17:40 INFO: == END
+2026-09-10 17:40 INFO: == tasktype:false-valid-assert, #problems:9, tested:9, correct:5
+2026-09-10 17:55 INFO: == START benchmarking. tool:maze, tasktype:false-valid-assert
+2026-09-10 17:55 INFO: P:float-nonlinear-calculation/EulerMethod,  verdict:False, expecting:False, T=2.116
+2026-09-10 17:55 INFO: P:float-nonlinear-calculation/MathSin,  verdict:True, expecting:False, T=1.647
+2026-09-10 17:56 INFO: P:float-nonlinear-calculation/Optimization1,  verdict:TIMEOUT, expecting:False, T=70.036
+2026-09-10 17:57 INFO: P:float-nonlinear-calculation/Optimization2,  verdict:TIMEOUT, expecting:False, T=70.06
+2026-09-10 17:57 INFO: P:float-nonlinear-calculation/coral1,  verdict:False, expecting:False, T=1.159
+2026-09-10 17:57 INFO: P:float-nonlinear-calculation/coral2,  verdict:True, expecting:False, T=1.121
+2026-09-10 17:57 INFO: P:float-nonlinear-calculation/coral10,  verdict:True, expecting:False, T=1.745
+2026-09-10 17:57 INFO: P:float-nonlinear-calculation/coral11,  verdict:False, expecting:False, T=1.234
+2026-09-10 17:57 INFO: P:float-nonlinear-calculation/coral12,  verdict:False, expecting:False, T=1.178
+2026-09-10 17:57 INFO: P:float-nonlinear-calculation/coral13,  verdict:False, expecting:False, T=1.168
+2026-09-10 17:57 INFO: P:float-nonlinear-calculation/coral14,  verdict:False, expecting:False, T=1.258
+2026-09-10 17:57 INFO: P:float-nonlinear-calculation/coral15,  verdict:True, expecting:False, T=1.24
+2026-09-10 17:59 INFO: P:float-nonlinear-calculation/coral16,  verdict:TIMEOUT, expecting:False, T=70.044
+2026-09-10 17:59 INFO: P:float-nonlinear-calculation/coral17,  verdict:True, expecting:False, T=1.122
+2026-09-10 17:59 INFO: P:float-nonlinear-calculation/coral18,  verdict:True, expecting:False, T=1.104
+2026-09-10 17:59 INFO: P:float-nonlinear-calculation/coral19,  verdict:True, expecting:False, T=1.085
+2026-09-10 17:59 INFO: P:float-nonlinear-calculation/coral20,  verdict:True, expecting:False, T=20.792
+2026-09-10 17:59 INFO: == END
+2026-09-10 17:59 INFO: == tasktype:false-valid-assert, #problems:17, tested:17, correct:6

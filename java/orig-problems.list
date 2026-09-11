@@ -66,3 +66,23 @@ jayhorn-recursive/UnsatEvenOdd01
 jayhorn-recursive/UnsatFibonacci01
 jayhorn-recursive/UnsatFibonacci02
 jayhorn-recursive/UnsatMccarthy91
+# =========
+# float-nonlinear group
+# =========
+float-nonlinear-calculation/EulerMethod
+float-nonlinear-calculation/MathSin
+float-nonlinear-calculation/Optimization1
+float-nonlinear-calculation/Optimization2
+float-nonlinear-calculation/coral1
+float-nonlinear-calculation/coral2
+float-nonlinear-calculation/coral10
+float-nonlinear-calculation/coral11
+float-nonlinear-calculation/coral12
+float-nonlinear-calculation/coral13
+float-nonlinear-calculation/coral14
+float-nonlinear-calculation/coral15
+float-nonlinear-calculation/coral16
+float-nonlinear-calculation/coral17
+float-nonlinear-calculation/coral18
+float-nonlinear-calculation/coral19
+float-nonlinear-calculation/coral20
