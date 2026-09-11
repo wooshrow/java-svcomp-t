@@ -37,8 +37,7 @@
 /** @author Jacob Burnim <jburnim@cs.berkeley.edu> */
 public class Main {
 
-  //public static void sort(int[] a) {
-  static void sort(int[] a) {
+  public static void sort(int[] a) {
     final int N = a.length;
     for (int i = 1; i < N; i++) { // N branches
       int j = i; // error, should be "i-1"

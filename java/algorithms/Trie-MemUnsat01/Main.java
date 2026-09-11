@@ -132,8 +132,7 @@ public class Main {
    *     <tt>null</tt> if the key is not in the symbol table
    * @throws NullPointerException if <tt>key</tt> is <tt>null</tt>
    */
-  //public int get(CharArray key) {
-  int get(CharArray key) {
+  public int get(CharArray key) {
     Node x = get2(root, key, 0);
     if (x == null) return -1;
     return x.val;
@@ -146,8 +145,7 @@ public class Main {
    * @return <tt>true</tt> if this symbol table contains <tt>key</tt> and <tt>false</tt> otherwise
    * @throws NullPointerException if <tt>key</tt> is <tt>null</tt>
    */
-  //public boolean contains(CharArray key) {
-  boolean contains(CharArray key) {
+  public boolean contains(CharArray key) {
     return get(key) != -1;
   }
 
@@ -167,8 +165,7 @@ public class Main {
    * @param val the value
    * @throws NullPointerException if <tt>key</tt> is <tt>null</tt>
    */
-  //public void put(CharArray key, int val) {
-  void put(CharArray key, int val) {
+  public void put(CharArray key, int val) {
     if (val == -1) delete(key);
     else root = put2(root, key, val, 0);
   }
@@ -191,8 +188,7 @@ public class Main {
    *
    * @return the number of key-value pairs in this symbol table
    */
-  //public int size() {
-  int size() {
+  public int size() {
     return N;
   }
 
@@ -201,8 +197,7 @@ public class Main {
    *
    * @return <tt>true</tt> if this symbol table is empty and <tt>false</tt> otherwise
    */
-  //public boolean isEmpty() {
-  boolean isEmpty() {
+  public boolean isEmpty() {
     return size() == 0;
   }
 
@@ -235,8 +230,7 @@ public class Main {
    *     <tt>null</tt> if no such string
    * @throws NullPointerException if <tt>query</tt> is <tt>null</tt>
    */
-  //public CharArray longestPrefixOf(CharArray query) {
-  CharArray longestPrefixOf(CharArray query) {
+  public CharArray longestPrefixOf(CharArray query) {
     int length = longestPrefixOf(root, query, 0, -1);
     if (length == -1) return null;
     else return query.substring(0, length);
@@ -260,8 +254,7 @@ public class Main {
    * @param key the key
    * @throws NullPointerException if <tt>key</tt> is <tt>null</tt>
    */
-  //public void delete(CharArray key) {
-  void delete(CharArray key) {
+  public void delete(CharArray key) {
     root = delete(root, key, 0);
   }
 

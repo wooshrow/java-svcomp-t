@@ -45,7 +45,7 @@ To make the verification problems targetable, some modifications are applied. Th
 
 * Calls to `v = Verifier.nondetType()` are replaced by introduction of explicit parameters to the target method. This is because MAZE requires symbolic variables to appear as method parameters rather than injected inside the method-body.
 * `Verifier.assume(P)` construct is replaced by `if (! P) then return ;`.
-* All methods in the entry class `Main.java` are made non-public, except the verification-entry method `main()`.
+
 
 ### Building
 

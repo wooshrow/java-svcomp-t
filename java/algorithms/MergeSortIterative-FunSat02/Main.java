@@ -62,8 +62,7 @@ public class Main {
   // Iterative mergeSort without copy
   /////////////////////////////////////////
 
-  //public static void iterativeMergesortWithoutCopy(int[] a) {
-  static void iterativeMergesortWithoutCopy(int[] a) {
+  public static void iterativeMergesortWithoutCopy(int[] a) {
     int[] from = a, to = new int[a.length];
     for (int blockSize = 1; blockSize < a.length; blockSize *= 2) {
       for (int start = 0; start < a.length; start += 2 * blockSize)
@@ -115,8 +114,7 @@ public class Main {
     for (int k = lo; k < hi; k++) a[k] = aux[k];
   }
 
-  //public static void recursiveMergesort(int[] a, int[] aux, int lo, int hi) {
-  static void recursiveMergesort(int[] a, int[] aux, int lo, int hi) {
+  public static void recursiveMergesort(int[] a, int[] aux, int lo, int hi) {
     // base case
     if (hi - lo <= 1) return;
     // sort each half, recursively
@@ -127,8 +125,7 @@ public class Main {
     merge(a, aux, lo, mid, hi);
   }
 
-  //public static void recursiveMergesort(int[] a) {
-  static void recursiveMergesort(int[] a) {
+  public static void recursiveMergesort(int[] a) {
     int n = a.length;
     int[] aux = new int[n];
     recursiveMergesort(a, aux, 0, n);
