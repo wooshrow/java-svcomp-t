@@ -15,7 +15,7 @@ def toolrun(benchhomeDir,problem,tasktype,timebudget):
    tooldir = Path(".")
    tooljar = f"{tooldir}/maze-1.1.2-jar-with-dependencies.jar"
    CUTclassdir = benchhomeDir / problem / "classes"
-   outputdir = tooldir / "out" / problem
+   outputdir = tooldir / "out" / tasktype / problem
    if outputdir.exists():
       shutil.rmtree(outputdir)
    os.makedirs(outputdir)
@@ -51,6 +51,7 @@ def toolrun(benchhomeDir,problem,tasktype,timebudget):
                 f"-b={timebudget2}",
                 "--max-depth=700",
                 "--max-array-size=10",
+                "--export-jimple=1",
                 "--constrain-FP-params-to-normal-numbers=true",
                 "--check-divbyZero=true"
                 ],

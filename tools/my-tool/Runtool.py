@@ -56,7 +56,7 @@ def toolrun(benchhomeDir,problem,tasktype,timebudget):
    # the location of the root-dir containing the bytecodes/binary of the verification target
    CUTclassdir = benchhomeDir / problem / "classes"
    # subdirectory where you can put outputs of your tool (e.g. generated Junit tests, witness, logs, etc)
-   outputdir = tooldir / "out" / problem
+   outputdir = tooldir / "out" / tasktype / problem
 
    # run the tool here
    # verdict = run your tool....

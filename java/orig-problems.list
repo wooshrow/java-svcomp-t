@@ -86,3 +86,22 @@ float-nonlinear-calculation/coral17
 float-nonlinear-calculation/coral18
 float-nonlinear-calculation/coral19
 float-nonlinear-calculation/coral20
+# =========
+# jdart-regression
+# =========
+jdart-regression/addition01
+jdart-regression/array-iteration01
+jdart-regression/boundcheck30
+jdart-regression/boundcheck100
+jdart-regression/boundcheck200
+jdart-regression/double2long
+jdart-regression/float
+jdart-regression/list2
+jdart-regression/OverapproximationString01
+jdart-regression/radians
+jdart-regression/shifting
+jdart-regression/shifting2
+jdart-regression/shifting3
+jdart-regression/startswith
+jdart-regression/URLDecoder01
+jdart-regression/URLDecoder02
