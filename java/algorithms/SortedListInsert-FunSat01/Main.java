@@ -41,7 +41,7 @@ public class Main {
     public int x;
     public List next;
 
-    private static final int SENTINEL = Integer.MAX_VALUE;
+    private final int SENTINEL = Integer.MAX_VALUE;
 
     private List(int x, List next) {
       this.x = x;
@@ -49,7 +49,9 @@ public class Main {
     }
 
     List() {
-      this(SENTINEL, null);
+      //this(SENTINEL, null);
+      this.x = SENTINEL ;
+      this.next = null;
     }
 
     void insert(int data) {

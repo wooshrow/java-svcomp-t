@@ -40,9 +40,9 @@
  */
 public class Main {
 
-  static final int INFINITY = Integer.MAX_VALUE;
+  final int INFINITY = Integer.MAX_VALUE;
 
-  static int[] runBellmanFord(int N, int D[], int src) {
+  int[] runBellmanFord(int N, int D[], int src) {
     // Initialize distances.
     int dist[] = new int[N];
     boolean infinite[] = new boolean[N];
@@ -107,11 +107,12 @@ public class Main {
       }
     }
 
-    int dist[] = runBellmanFord(V, D, 0);
+    Main M = new Main() ;
+    int dist[] = M.runBellmanFord(V, D, 0);
     for (int d : dist) {
       // either there is no path to d from the source,
       // or it goes through at most V nodes
-      assert (d == INFINITY || d <= V);
+      assert (d == M.INFINITY || d <= V);
     }
   }
 }

@@ -45,6 +45,9 @@ To make the verification problems targetable, some modifications are applied. Th
 
 * Calls to `v = Verifier.nondetType()` are replaced by introduction of explicit parameters to the target method. This is because MAZE requires symbolic variables to appear as method parameters rather than injected inside the method-body.
 * `Verifier.assume(P)` construct is replaced by `if (! P) then return ;`.
+* Because currently MAZE cannot deal with initialization of static variables, we refactor classes with static variables.
+A class with static variables is refactored in one of the following ways. (1) the static variables are changed to become instance variables. Static members methods that refer to the variables are made instance methods as well. Or (2), a new class is introduced to hold the static variables.
+* Some problems in SVCOMP form a family with some shared java source-files. For convenience, we copied share files to each problem-directory so it is easier to independently compile each problem.
 
 
 ### Building

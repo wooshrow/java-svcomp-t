@@ -105,3 +105,18 @@ jdart-regression/shifting3
 jdart-regression/startswith
 jdart-regression/URLDecoder01
 jdart-regression/URLDecoder02
+# =========
+# java-ranger-regression
+# =========
+java-ranger-regression/loopCharAt
+java-ranger-regression/nanoxml_eqchk/prop1
+java-ranger-regression/nanoxml_eqchk/prop2
+java-ranger-regression/nanoxml_eqchk/prop3
+java-ranger-regression/siena_eqchk/prop2
+java-ranger-regression/TCAS_prop1
+java-ranger-regression/TCAS_prop2
+java-ranger-regression/TCAS_prop3
+java-ranger-regression/WBS/prop1
+java-ranger-regression/WBS/prop2
+java-ranger-regression/WBS/prop3
+java-ranger-regression/WBS/prop4

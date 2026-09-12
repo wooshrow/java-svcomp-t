@@ -33,6 +33,7 @@ def compile() :
      if not outdir.exists():
         os.makedirs(outdir)
      print(f"* Compiling {T}")
+     srcpathCommon = path / ".." / "common"
      sp =  subprocess.run(["javac" ,
             "-sourcepath", T,
             "-d", outdir,

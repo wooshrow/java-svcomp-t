@@ -73,24 +73,27 @@
  */
 public class Main {
 
-  private static final int R = 256; // extended ASCII
-
+  static class Constants {
+      private final int R = 256; // extended ASCII
+      private final int DEFAULT_LENGTH = 42;
+  }
+  
   private Node root; // root of trie
   private int N = 0; // number of keys in trie
 
   // R-way trie node
   private static class Node {
     private int val = -1;
-    private Node[] next = new Node[R];
+    private Node[] next = new Node[new Constants() . R];
   }
 
   private static class CharArray {
     private int length = 0;
     public char[] array;
-    private static final int DEFAULT_LENGTH = 42;
+    
 
     public CharArray() {
-      this(DEFAULT_LENGTH);
+      this(new Constants() . DEFAULT_LENGTH);
     }
 
     public CharArray(int length) {
@@ -270,7 +273,7 @@ public class Main {
 
     // remove subtrie rooted at x if it is completely empty
     if (x.val != -1) return x;
-    for (int c = 0; c < R; c++) if (x.next[c] != null) return x;
+    for (int c = 0; c < new Constants() . R ; c++) if (x.next[c] != null) return x;
     return null;
   }
 

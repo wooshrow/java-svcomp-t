@@ -40,9 +40,9 @@
  */
 public class Main {
 
-  static final int INFINITY = Integer.MAX_VALUE;
+  final int INFINITY = Integer.MAX_VALUE;
 
-  static int[] runBellmanFord(int N, int D[], int src) {
+  int[] runBellmanFord(int N, int D[], int src) {
     // Initialize distances.
     int dist[] = new int[N];
     boolean infinite[] = new boolean[N];
@@ -107,7 +107,7 @@ public class Main {
       }
     }
     try {
-      int dist[] = runBellmanFord(V, D, 0);
+      int dist[] = new Main() . runBellmanFord(V, D, 0);
     } catch (Exception e) {
       assert false;
     }
