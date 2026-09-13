@@ -49,7 +49,7 @@ public class SENPDriver {
     byte _handler3 = (byte) handler3;
     packet.initHandler(_handler1, _handler2, _handler3);
 
-    return SENP.encodePacket(packet);
+    return new SENP() . encodePacket(packet);
     //		byte[] result = SENP.encodePacket(packet);
     //		for (int i = 0; i < result.length; i++) {
     //			System.out.print(result[i] + " ");

@@ -33,19 +33,19 @@
  */
 public class AttributeValue {
   /** <em>null</em> type, it is the default type of a Siena attribute */
-  public static final int NULL = 0;
+  public final int NULL = 0;
   /** string of bytes */
-  public static final int BYTEARRAY = 1;
+  public final int BYTEARRAY = 1;
   /** an alias to <code>BYTEARRAY</code> provided only for backward compatibility */
-  public static final int STRING = 1;
+  public final int STRING = 1;
   /** integer type. Corresponds to the Java <code>long</code> type. */
-  public static final int LONG = 2;
+  public final int LONG = 2;
   /** integer type. Corresponds to the Java <code>int</code> type. */
-  public static final int INT = 2;
+  public final int INT = 2;
   /** double type. Corresponds to the Java <code>double</code> type. */
-  public static final int DOUBLE = 3;
+  public final int DOUBLE = 3;
   /** boolean type. Corresponds to the Java <code>boolean</code> type. */
-  public static final int BOOL = 4;
+  public final int BOOL = 4;
 
   protected int type;
 

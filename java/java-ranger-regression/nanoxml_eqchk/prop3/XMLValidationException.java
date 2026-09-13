@@ -35,29 +35,31 @@
  */
 public class XMLValidationException extends RuntimeException {
 
-  /** An element was missing. */
-  public static final int MISSING_ELEMENT = 1;
+	public static class Constants {
+		/** An element was missing. */
+		public final int MISSING_ELEMENT = 1;
 
-  /** An unexpected element was encountered. */
-  public static final int UNEXPECTED_ELEMENT = 2;
+		/** An unexpected element was encountered. */
+		public final int UNEXPECTED_ELEMENT = 2;
 
-  /** An attribute was missing. */
-  public static final int MISSING_ATTRIBUTE = 3;
+		/** An attribute was missing. */
+		public final int MISSING_ATTRIBUTE = 3;
 
-  /** An unexpected attribute was encountered. */
-  public static final int UNEXPECTED_ATTRIBUTE = 4;
+		/** An unexpected attribute was encountered. */
+		public final int UNEXPECTED_ATTRIBUTE = 4;
 
-  /** An attribute has an invalid value. */
-  public static final int ATTRIBUTE_WITH_INVALID_VALUE = 5;
+		/** An attribute has an invalid value. */
+		public final int ATTRIBUTE_WITH_INVALID_VALUE = 5;
 
-  /** A PCDATA element was missing. */
-  public static final int MISSING_PCDATA = 6;
+		/** A PCDATA element was missing. */
+		public final int MISSING_PCDATA = 6;
 
-  /** An unexpected PCDATA element was encountered. */
-  public static final int UNEXPECTED_PCDATA = 7;
+		/** An unexpected PCDATA element was encountered. */
+		public final int UNEXPECTED_PCDATA = 7;
 
-  /** Another error than those specified in this class was encountered. */
-  public static final int MISC_ERROR = 0;
+		/** Another error than those specified in this class was encountered. */
+		public final int MISC_ERROR = 0;
+	}
 
   /** Which error occurred. */
   private int errorType;

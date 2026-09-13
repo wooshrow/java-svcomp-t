@@ -29,85 +29,85 @@ import java.util.Iterator;
 
 public class SENP {
 
-  public static final byte ProtocolVersion = 1;
+  public final byte ProtocolVersion = 1;
 
-  public static final byte[] Version = {0x76, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e}; // version
+  public final byte[] Version = {0x76, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e}; // version
 
-  public static final byte[] To = {0x74, 0x6F}; // to
-  public static final byte[] Method = {0x6d, 0x65, 0x74, 0x68, 0x6f, 0x64}; // method
-  public static final byte[] Id = {0x69, 0x64}; // id
-  public static final byte[] Handler = {0x68, 0x61, 0x6e, 0x64, 0x6c, 0x65, 0x72}; // handler
-  public static final byte[] Ttl = {0x74, 0x74, 0x6c}; // ttl
+  public final byte[] To = {0x74, 0x6F}; // to
+  public final byte[] Method = {0x6d, 0x65, 0x74, 0x68, 0x6f, 0x64}; // method
+  public final byte[] Id = {0x69, 0x64}; // id
+  public final byte[] Handler = {0x68, 0x61, 0x6e, 0x64, 0x6c, 0x65, 0x72}; // handler
+  public final byte[] Ttl = {0x74, 0x74, 0x6c}; // ttl
 
-  public static final int DefaultTtl = 30;
+  public final int DefaultTtl = 30;
 
-  public static final int MaxPacketLen = 65536;
+  public final int MaxPacketLen = 65536;
 
-  public static final byte NOP = 0;
-  public static final byte PUB = 1;
-  public static final byte SUB = 2;
-  public static final byte UNS = 3;
-  public static final byte ADV = 4;
-  public static final byte UNA = 5;
-  public static final byte HLO = 6;
-  public static final byte BYE = 7;
-  public static final byte SUS = 8;
-  public static final byte RES = 9;
-  public static final byte MAP = 10;
-  public static final byte WHO = 11;
-  public static final byte INF = 12;
+  public final byte NOP = 0;
+  public final byte PUB = 1;
+  public final byte SUB = 2;
+  public final byte UNS = 3;
+  public final byte ADV = 4;
+  public final byte UNA = 5;
+  public final byte HLO = 6;
+  public final byte BYE = 7;
+  public final byte SUS = 8;
+  public final byte RES = 9;
+  public final byte MAP = 10;
+  public final byte WHO = 11;
+  public final byte INF = 12;
 
-  public static final byte[] Methods1 = {0x4E, 0x4F, 0x50}; // NOP
-  public static final byte[] Methods2 = {0x50, 0x55, 0x42}; // PUB
-  public static final byte[] Methods3 = {0x53, 0x55, 0x42}; // SUB
-  public static final byte[] Methods4 = {0x55, 0x4E, 0x53}; // UNS
-  public static final byte[] Methods5 = {0x41, 0x44, 0x56}; // ADV
-  public static final byte[] Methods6 = {0x55, 0x4E, 0x41}; // UNA
-  public static final byte[] Methods7 = {0x48, 0x4C, 0x4F}; // HLO
-  public static final byte[] Methods8 = {0x42, 0x59, 0x45}; // BYE
-  public static final byte[] Methods9 = {0x53, 0x55, 0x53}; // SUS
-  public static final byte[] Methods10 = {0x52, 0x45, 0x53}; // RES
-  public static final byte[] Methods11 = {0x4D, 0x41, 0x50}; // MAP
-  public static final byte[] Methods12 = {0x57, 0x48, 0x4f}; // WHO
-  public static final byte[] Methods13 = {0x49, 0x4e, 0x46}; // INF
+  public final byte[] Methods1 = {0x4E, 0x4F, 0x50}; // NOP
+  public final byte[] Methods2 = {0x50, 0x55, 0x42}; // PUB
+  public final byte[] Methods3 = {0x53, 0x55, 0x42}; // SUB
+  public final byte[] Methods4 = {0x55, 0x4E, 0x53}; // UNS
+  public final byte[] Methods5 = {0x41, 0x44, 0x56}; // ADV
+  public final byte[] Methods6 = {0x55, 0x4E, 0x41}; // UNA
+  public final byte[] Methods7 = {0x48, 0x4C, 0x4F}; // HLO
+  public final byte[] Methods8 = {0x42, 0x59, 0x45}; // BYE
+  public final byte[] Methods9 = {0x53, 0x55, 0x53}; // SUS
+  public final byte[] Methods10 = {0x52, 0x45, 0x53}; // RES
+  public final byte[] Methods11 = {0x4D, 0x41, 0x50}; // MAP
+  public final byte[] Methods12 = {0x57, 0x48, 0x4f}; // WHO
+  public final byte[] Methods13 = {0x49, 0x4e, 0x46}; // INF
 
   //
   // WARNING: don't mess up the order of operators in this array
   // it must correspond to the definitions of
   // AttributeConstraint.EQ, AttributeConstraint.LT, etc.
   //
-  public static final byte[] operators1 = {0x3f}; // ?
-  public static final byte[] operators2 = {0x3d}; // "="
-  public static final byte[] operators3 = {0x3c}; // "<"
-  public static final byte[] operators4 = {0x3e}; // ">"
-  public static final byte[] operators5 = {0x3e, 0x3d}; // ">="
-  public static final byte[] operators6 = {0x3c, 0x3d}; // "<="
-  public static final byte[] operators7 = {0x3e, 0x2a}; // ">*"
-  public static final byte[] operators8 = {0x2a, 0x3c}; // "*<"
-  public static final byte[] operators9 = {0x61, 0x6e, 0x79}; // any,
-  public static final byte[] operators10 = {0x21, 0x3d}; // "!="
-  public static final byte[] operators11 = {0x2a}; // "*"
+  public final byte[] operators1 = {0x3f}; // ?
+  public final byte[] operators2 = {0x3d}; // "="
+  public final byte[] operators3 = {0x3c}; // "<"
+  public final byte[] operators4 = {0x3e}; // ">"
+  public final byte[] operators5 = {0x3e, 0x3d}; // ">="
+  public final byte[] operators6 = {0x3c, 0x3d}; // "<="
+  public final byte[] operators7 = {0x3e, 0x2a}; // ">*"
+  public final byte[] operators8 = {0x2a, 0x3c}; // "*<"
+  public final byte[] operators9 = {0x61, 0x6e, 0x79}; // any,
+  public final byte[] operators10 = {0x21, 0x3d}; // "!="
+  public final byte[] operators11 = {0x2a}; // "*"
   //
   // default port numbers
   //
-  public static final int CLIENT_PORT = 1936;
-  public static final int SERVER_PORT = 1969;
-  public static final int DEFAULT_PORT = 1969;
+  public final int CLIENT_PORT = 1936;
+  public final int SERVER_PORT = 1969;
+  public final int DEFAULT_PORT = 1969;
 
-  public static final byte[] KwdSeparator = {0x20}; // ' '
-  public static final byte[] KwdSenp = {0x73, 0x65, 0x6e, 0x70}; // senp
-  public static final byte[] KwdEvent = {0x65, 0x76, 0x65, 0x6e, 0x74}; // event
-  public static final byte[] KwdFilter = {0x66, 0x69, 0x6c, 0x74, 0x65, 0x72}; // filter
-  public static final byte[] KwdPattern = {
+  public final byte[] KwdSeparator = {0x20}; // ' '
+  public final byte[] KwdSenp = {0x73, 0x65, 0x6e, 0x70}; // senp
+  public final byte[] KwdEvent = {0x65, 0x76, 0x65, 0x6e, 0x74}; // event
+  public final byte[] KwdFilter = {0x66, 0x69, 0x6c, 0x74, 0x65, 0x72}; // filter
+  public final byte[] KwdPattern = {
     0x70, 0x61, 0x74, 0x74, 0x65, 0x72, 0x6e
   }; // pattern // not used yet...
-  public static final byte[] KwdLParen = {0x7b}; // {
-  public static final byte[] KwdRParen = {0x7d}; // }
-  public static final byte[] KwdEquals = {0x3d}; // =
-  public static final byte[] KwdTrue = {0x74, 0x72, 0x75, 0x65}; // true
-  public static final byte[] KwdFalse = {0x66, 0x61, 0x6c, 0x73, 0x65}; // false
+  public final byte[] KwdLParen = {0x7b}; // {
+  public final byte[] KwdRParen = {0x7d}; // }
+  public final byte[] KwdEquals = {0x3d}; // =
+  public final byte[] KwdTrue = {0x74, 0x72, 0x75, 0x65}; // true
+  public final byte[] KwdFalse = {0x66, 0x61, 0x6c, 0x73, 0x65}; // false
 
-  public static boolean match(byte[] x, byte[] y) {
+  public boolean match(byte[] x, byte[] y) {
     int x_length = x.length;
     int y_length = y.length;
     if (x_length != y_length) return false;
@@ -119,20 +119,20 @@ public class SENP {
     return true;
   }
 
-  public static byte[] encodeValue(AttributeValue a) {
+  public byte[] encodeValue(AttributeValue a) {
     ByteBuf byteBuf = encodeWithValue(a);
     byte[] result = byteBuf.bytes();
     return result;
   }
 
-  public static byte[] encodeLong(long number) {
+  public byte[] encodeLong(long number) {
     ByteBuf sb = new ByteBuf(1, 2);
     ByteBuf byteBuf = encode_decimal(sb, number);
     byte[] result = byteBuf.bytes();
     return result;
   }
 
-  private static ByteBuf encode_octal(ByteBuf sb, byte x) {
+  private ByteBuf encode_octal(ByteBuf sb, byte x) {
     int _x = x >> 6;
     if (_x != 0) {
       byte byte_P = (byte) (x >> 6);
@@ -148,7 +148,7 @@ public class SENP {
     return sb;
   }
 
-  private static ByteBuf encode_decimal(ByteBuf sb, long x) {
+  private ByteBuf encode_decimal(ByteBuf sb, long x) {
     byte[] buf = new byte[20]; // Log(MAX_LONG)+1
     int pos = 0;
     boolean negative;
@@ -181,7 +181,7 @@ public class SENP {
     return sb;
   }
 
-  private static ByteBuf encode_double(ByteBuf sb, long x) {
+  private ByteBuf encode_double(ByteBuf sb, long x) {
 
     byte[] buf = new byte[20]; // Log(MAX_LONG)+1
     int pos = 0;
@@ -207,7 +207,7 @@ public class SENP {
     return sb;
   }
 
-  private static ByteBuf encodeWithBuf(ByteBuf sb, byte[] bv) {
+  private ByteBuf encodeWithBuf(ByteBuf sb, byte[] bv) {
     sb.appendInt(0x22);
     for (int i = 0; i < bv.length; ) {
       if (bv[i] == 11) {
@@ -255,7 +255,7 @@ public class SENP {
     return sb;
   }
 
-  public static ByteBuf encodeWithValue(ByteBuf sb, AttributeValue a) {
+  public ByteBuf encodeWithValue(ByteBuf sb, AttributeValue a) {
     int type = a.getType();
     if (type == 2) {
       encode_decimal(sb, a.intValue());
@@ -279,7 +279,7 @@ public class SENP {
     return sb;
   }
 
-  public static ByteBuf encodeWithValue(AttributeValue a) {
+  public ByteBuf encodeWithValue(AttributeValue a) {
     ByteBuf sb = new ByteBuf();
     int type = a.getType();
     if (type == 2) {
@@ -304,14 +304,14 @@ public class SENP {
     return sb;
   }
 
-  public static ByteBuf encodePacket(SENPPacket p) {
+  public ByteBuf encodePacket(SENPPacket p) {
     ByteBuf byteBuf = encodeWithPacket2(p);
     return byteBuf;
     //		byte[] result = byteBuf.bytes();
     //		return result;
   }
 
-  public static ByteBuf encodeWithPacket2(SENPPacket p) {
+  public ByteBuf encodeWithPacket2(SENPPacket p) {
     ByteBuf sb = new ByteBuf();
     sb.appendByte(KwdSenp);
     sb.appendByte(KwdLParen);
@@ -399,7 +399,7 @@ public class SENP {
     return sb;
   }
 
-  public static ByteBuf encodeWithPacket(ByteBuf sb, SENPPacket p) {
+  public ByteBuf encodeWithPacket(ByteBuf sb, SENPPacket p) {
     sb.appendByte(KwdSenp);
     sb.appendByte(KwdLParen);
 
@@ -482,12 +482,12 @@ public class SENP {
     return sb;
   }
 
-  public static byte[] encodeEvent(Event e) {
+  public byte[] encodeEvent(Event e) {
     ByteBuf b = new ByteBuf();
     return encodeWithEvent(b, e).bytes();
   }
 
-  public static ByteBuf encodeWithEvent(ByteBuf sb, Event e) {
+  public ByteBuf encodeWithEvent(ByteBuf sb, Event e) {
     sb.appendByte(KwdEvent);
     sb.appendByte(KwdLParen);
     Iterator i = e.attributeNamesIterator();
@@ -502,12 +502,12 @@ public class SENP {
     return sb;
   }
 
-  public static byte[] encodeFilter(Filter f) {
+  public byte[] encodeFilter(Filter f) {
     ByteBuf b = new ByteBuf();
     return encodeWithFilter(b, f).bytes();
   }
 
-  public static ByteBuf encodeWithFilter(ByteBuf sb, Filter f) {
+  public ByteBuf encodeWithFilter(ByteBuf sb, Filter f) {
     sb.appendByte(KwdFilter);
     sb.appendByte(KwdLParen);
     Iterator i = f.constraintNamesIterator();
@@ -524,12 +524,12 @@ public class SENP {
     return sb;
   }
 
-  public static byte[] encodeConstraint(AttributeConstraint a) {
+  public byte[] encodeConstraint(AttributeConstraint a) {
     ByteBuf sb = new ByteBuf();
     return encodeWithConstraint(sb, a).bytes();
   }
 
-  public static ByteBuf encodeWithConstraint(ByteBuf sb, AttributeConstraint a) {
+  public ByteBuf encodeWithConstraint(ByteBuf sb, AttributeConstraint a) {
     if (a.op == 0) {
       sb.appendByte(operators1);
     } else if (a.op == 1) {
@@ -554,19 +554,19 @@ public class SENP {
       sb.appendByte(operators11);
     }
     //		sb.append(operators[a.op]);
-    if (a.op == AttributeConstraint.XX) return sb;
+    if (a.op == a.XX) return sb;
     return encodeWithValue(sb, a.value);
   }
 
-  private static AttributeValue readAttribute(Tokenizer t) throws SENPInvalidFormat {
+  private AttributeValue readAttribute(Tokenizer t) throws SENPInvalidFormat {
     int nextToken = t.nextToken();
-    if (nextToken == Tokenizer.T_STR) {
+    if (nextToken == t.T_STR) {
       return new AttributeValue(t.sval);
-    } else if (nextToken == Tokenizer.T_INT) {
+    } else if (nextToken == t.T_INT) {
       return new AttributeValue(t.ival);
-    } else if (nextToken == Tokenizer.T_BOOL) {
+    } else if (nextToken == t.T_BOOL) {
       return new AttributeValue(t.bval);
-    } else if (nextToken == Tokenizer.T_DOUBLE) {
+    } else if (nextToken == t.T_DOUBLE) {
       return new AttributeValue(t.dval);
     } else {
       throw (new SENPInvalidFormat("<int>, <string>, <bool> or <double>"));

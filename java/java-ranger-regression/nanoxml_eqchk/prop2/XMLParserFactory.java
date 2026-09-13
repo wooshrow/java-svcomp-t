@@ -34,15 +34,19 @@
  */
 public class XMLParserFactory {
 
-  /** The class name of the default XML parser. */
-  public static final String DEFAULT_CLASS = "net.n3.nanoxml.StdXMLParser";
+	
+	static class Constants {
+		/** The class name of the default XML parser. */
+		public final String DEFAULT_CLASS = "net.n3.nanoxml.StdXMLParser";
 
-  /** The class name of the default XML validator. */
-  public static final String VALIDATOR_CLASS = "net.n3.nanoxml.NonValidator";
+		/** The class name of the default XML validator. */
+		public final String VALIDATOR_CLASS = "net.n3.nanoxml.NonValidator";
 
-  /** The Java properties key of the XML parser class name. */
-  public static final String CLASS_KEY = "net.n3.nanoxml.XMLParser";
+		/** The Java properties key of the XML parser class name. */
+		public final String CLASS_KEY = "net.n3.nanoxml.XMLParser";
 
+	}
+  
   /**
    * Creates a default parser.
    *
@@ -58,7 +62,7 @@ public class XMLParserFactory {
   public static IXMLParser createDefaultXMLParser()
       throws ClassNotFoundException, InstantiationException, IllegalAccessException {
     String className =
-        System.getProperty(XMLParserFactory.CLASS_KEY, XMLParserFactory.DEFAULT_CLASS);
+        System.getProperty(new Constants().CLASS_KEY, new Constants().DEFAULT_CLASS);
     return XMLParserFactory.createXMLParser(className, new StdXMLBuilder(), null, null);
   }
 
@@ -79,7 +83,7 @@ public class XMLParserFactory {
       IXMLBuilder builder, IXMLReader reader, IXMLValidator validator)
       throws ClassNotFoundException, InstantiationException, IllegalAccessException {
     String className =
-        System.getProperty(XMLParserFactory.CLASS_KEY, XMLParserFactory.DEFAULT_CLASS);
+        System.getProperty(new Constants().CLASS_KEY, new Constants().DEFAULT_CLASS);
     return XMLParserFactory.createXMLParser(className, builder, reader, validator);
   }
 
@@ -104,7 +108,7 @@ public class XMLParserFactory {
 
     if (validator == null) {
       try {
-        cls = Class.forName(XMLParserFactory.VALIDATOR_CLASS);
+        cls = Class.forName(new Constants().VALIDATOR_CLASS);
         validator = (IXMLValidator) cls.newInstance();
       } catch (Exception e) {
         // we can safely ignore any exceptions here

@@ -62,9 +62,10 @@ public class SENPPacket {
   }
 
   public SENPPacket() {
-    version = SENP.ProtocolVersion;
-    method = SENP.NOP;
-    ttl = SENP.DefaultTtl;
+	SENP senp = new SENP() ;
+    version = senp.ProtocolVersion;
+    method = senp.NOP;
+    ttl = (byte) senp.DefaultTtl;
   }
 
   public void initTo(byte to1, byte to2, byte to3) {
@@ -92,7 +93,7 @@ public class SENPPacket {
   }
 
   public String toString() {
-    return new String(SENP.encodePacket(this).bytes());
+    return new String(new SENP() . encodePacket(this).bytes());
   }
 }
 ;

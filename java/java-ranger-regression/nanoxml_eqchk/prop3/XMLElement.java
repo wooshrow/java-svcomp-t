@@ -44,7 +44,7 @@ public class XMLElement implements Serializable {
   static final long serialVersionUID = -2383376380548624920L;
 
   /** No line number defined. */
-  public static final int NO_LINE = -1;
+  public final int NO_LINE = -1;
 
   /** The attributes of the element. */
   private Properties attributes;
@@ -62,18 +62,26 @@ public class XMLElement implements Serializable {
   private int lineNr;
 
   /** Creates an empty element to be used for #PCDATA content. */
-  public XMLElement() {
-    this(null, NO_LINE);
-  }
+	public XMLElement() {
+		this.attributes = new Properties();
+		this.children = new Vector(8);
+		this.name = null;
+		this.content = null;
+		this.lineNr = NO_LINE;
+	}
 
-  /**
-   * Creates an empty element.
-   *
-   * @param name the name of the element.
-   */
-  public XMLElement(String name) {
-    this(name, NO_LINE);
-  }
+	/**
+	 * Creates an empty element.
+	 *
+	 * @param name the name of the element.
+	 */
+	public XMLElement(String name) {
+		this.attributes = new Properties();
+		this.children = new Vector(8);
+		this.name = name;
+		this.content = null;
+		this.lineNr = NO_LINE;
+	}
 
   /**
    * Creates an empty element.

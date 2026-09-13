@@ -112,6 +112,11 @@ java-ranger-regression/loopCharAt
 java-ranger-regression/nanoxml_eqchk/prop1
 java-ranger-regression/nanoxml_eqchk/prop2
 java-ranger-regression/nanoxml_eqchk/prop3
+java-ranger-regression/printtokens_eqchk/prop1
+java-ranger-regression/printtokens_eqchk/prop2
+java-ranger-regression/replace5_eqchk/prop1
+java-ranger-regression/replace5_eqchk/prop2
+java-ranger-regression/siena_eqchk/prop1
 java-ranger-regression/siena_eqchk/prop2
 java-ranger-regression/TCAS_prop1
 java-ranger-regression/TCAS_prop2

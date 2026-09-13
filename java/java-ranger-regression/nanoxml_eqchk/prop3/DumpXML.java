@@ -1,8 +1,10 @@
 public class DumpXML {
 
-  public static int numIdentifiers;
+  //public static int numIdentifiers;
+	
+  StdXMLParser parser ;
 
-  public static int mainProcess(
+  public int mainProcess(
       char i0, char i1, char i2, char i3, char i4, char i5, char i6, char i7, char i8) {
     char[] str = new char[12];
     str[0] = i0;
@@ -14,7 +16,8 @@ public class DumpXML {
     str[6] = i6;
     str[7] = i7;
     str[8] = i8;
-    StdXMLParser parser = new StdXMLParser();
+    
+    parser = new StdXMLParser();
 
     IntReader intReader = new IntReader(str);
     StdXMLReader stdXMLReader = new StdXMLReader(intReader);
@@ -33,10 +36,10 @@ public class DumpXML {
     }
 
     //		(new XMLWriter(System.out)).write(xml);
-    return numIdentifiers;
+    return parser.numIdentifiers;
   }
 
   public static void main(String args[]) {
-    mainProcess('<', 'a', '\t', 't', '=', '=', '"', '1', '"');
+	new DumpXML() . mainProcess('<', 'a', '\t', 't', '=', '=', '"', '1', '"');
   }
 }

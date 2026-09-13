@@ -9,19 +9,19 @@ public class Tokenizer {
   //
   // token types
   //
-  public static final int T_EOF = -1;
+  public final int T_EOF = -1;
   public static final int T_UNKNOWN = -2;
   //
   // keywords
   //
-  public static final int T_ID = -3;
-  public static final int T_STR = -4;
-  public static final int T_INT = -5;
-  public static final int T_DOUBLE = -6;
-  public static final int T_BOOL = -7;
-  public static final int T_OP = -8;
-  public static final int T_LPAREN = -9;
-  public static final int T_RPAREN = -10;
+  public final int T_ID = -3;
+  public final int T_STR = -4;
+  public final int T_INT = -5;
+  public final int T_DOUBLE = -6;
+  public final int T_BOOL = -7;
+  public final int T_OP = -8;
+  public final int T_LPAREN = -9;
+  public final int T_RPAREN = -10;
 
   public short oval;
   public byte[] sval;
@@ -276,6 +276,9 @@ public class Tokenizer {
   }
 
   public int nextToken() {
+	  
+	AttributeConstraint AttributeConstraintConstants = new AttributeConstraint() ;
+	  
     while (true) {
       byte cur_byte = (byte) currByte();
       if (cur_byte == -1) {
@@ -292,7 +295,7 @@ public class Tokenizer {
       } else if (cur_byte == 33) {
         byte next_byte = (byte) nextByte();
         if (next_byte == 0x3d) {
-          oval = AttributeConstraint.NE;
+          oval = AttributeConstraintConstants.NE;
           pos = pos + 1;
           return T_OP;
         } else {
@@ -301,39 +304,39 @@ public class Tokenizer {
       } else if (cur_byte == 42) {
         byte next_byte = (byte) nextByte();
         if (next_byte == 60) {
-          oval = AttributeConstraint.SF;
+          oval = AttributeConstraintConstants.SF;
           pos = pos + 1;
           return T_OP;
         } else {
-          oval = AttributeConstraint.SS;
+          oval = AttributeConstraintConstants.SS;
           return T_OP;
         }
       } else if (cur_byte == 0x3d) {
-        oval = AttributeConstraint.EQ;
+        oval = AttributeConstraintConstants.EQ;
         pos = pos + 1;
         return T_OP;
       } else if (cur_byte == 62) {
         byte next_byte = (byte) nextByte();
         if (next_byte == 42) {
-          oval = AttributeConstraint.PF;
+          oval = AttributeConstraintConstants.PF;
           pos = pos + 1;
           return T_OP;
         } else if (next_byte == 0x3d) {
-          oval = AttributeConstraint.GE;
+          oval = AttributeConstraintConstants.GE;
           pos = pos + 1;
           return T_OP;
         } else {
-          oval = AttributeConstraint.GT;
+          oval = AttributeConstraintConstants.GT;
           return T_OP;
         }
       } else if (cur_byte == 60) {
         byte next_byte = (byte) nextByte();
         if (next_byte == 0x3d) {
-          oval = AttributeConstraint.LE;
+          oval = AttributeConstraintConstants.LE;
           pos = pos + 1;
           return T_OP;
         } else {
-          oval = AttributeConstraint.LT;
+          oval = AttributeConstraintConstants.LT;
           return T_OP;
         }
       } else {

@@ -34,6 +34,9 @@ import java.util.TreeMap;
 
 public class Filter {
   private Map constraints;
+  
+  private AttributeConstraint AttributeConstraintConstants = new AttributeConstraint() ;
+  
 
   /** creates an empty filter. A filter with no constraints. */
   public Filter() {
@@ -143,7 +146,7 @@ public class Filter {
    * </pre></code>
    */
   public void addConstraint(String s, String sval) {
-    addConstraint(s, new AttributeConstraint(AttributeConstraint.EQ, sval));
+    addConstraint(s, new AttributeConstraint(AttributeConstraintConstants.EQ, sval));
   }
   ;
 
@@ -152,7 +155,7 @@ public class Filter {
    * </code> argument <em>sval</em>.
    */
   public void addConstraint(String s, byte[] sval) {
-    addConstraint(s, new AttributeConstraint(AttributeConstraint.EQ, sval));
+    addConstraint(s, new AttributeConstraint(AttributeConstraintConstants.EQ, sval));
   }
   ;
 
@@ -161,7 +164,7 @@ public class Filter {
    * argument <em>ival</em>.
    */
   public void addConstraint(String s, int ival) {
-    addConstraint(s, new AttributeConstraint(AttributeConstraint.EQ, ival));
+    addConstraint(s, new AttributeConstraint(AttributeConstraintConstants.EQ, ival));
   }
   ;
 
@@ -170,7 +173,7 @@ public class Filter {
    * </code> argument <em>bval</em>.
    */
   public void addConstraint(String s, boolean bval) {
-    addConstraint(s, new AttributeConstraint(AttributeConstraint.EQ, bval));
+    addConstraint(s, new AttributeConstraint(AttributeConstraintConstants.EQ, bval));
   }
   ;
 
@@ -179,7 +182,7 @@ public class Filter {
    * argument <em>lval</em>.
    */
   public void addConstraint(String s, long lval) {
-    addConstraint(s, new AttributeConstraint(AttributeConstraint.EQ, lval));
+    addConstraint(s, new AttributeConstraint(AttributeConstraintConstants.EQ, lval));
   }
   ;
 
@@ -188,7 +191,7 @@ public class Filter {
    * </code> argument <em>dval</em>.
    */
   public void addConstraint(String s, double dval) {
-    addConstraint(s, new AttributeConstraint(AttributeConstraint.EQ, dval));
+    addConstraint(s, new AttributeConstraint(AttributeConstraintConstants.EQ, dval));
   }
   ;
 

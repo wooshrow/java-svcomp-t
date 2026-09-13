@@ -1,25 +1,33 @@
 import java.io.IOException;
 
 public class PrintTokens2 {
+	
+  static class PrintTokensState {
+	  // moving non-final static vars here:
+	  public char[] buffer = new char[81];
+	  public int output = 0;
+  }
+  
+  public PrintTokensState state = new PrintTokensState() ;
 
-  public static char[] buffer = new char[81];
-  public static int output = 0;
+  //public char[] buffer = new char[81];
+  //public int output = 0;
 
-  public static final int error = 0;
-  public static final int keyword = 1;
-  public static final int specSymbol = 2;
-  public static final int identifier = 3;
-  public static final int numConstant = 41;
-  public static final int strConstant = 42;
-  public static final int charConstant = 43;
-  public static final int comment = 5;
-  public static final int end = 6;
+  public final int error = 0;
+  public final int keyword = 1;
+  public final int specSymbol = 2;
+  public final int identifier = 3;
+  public final int numConstant = 41;
+  public final int strConstant = 42;
+  public final int charConstant = 43;
+  public final int comment = 5;
+  public final int end = 6;
 
   public static void main(String[] args) {
-    mainProcess('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h');
+    new PrintTokens2() . mainProcess('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h');
   }
 
-  public static void mainProcess(
+  public void mainProcess(
       char i0, char i1, char i2, char i3, char i4, char i5, char i6, char i7) {
     char[] str = new char[8];
     str[0] = i0;
@@ -49,48 +57,48 @@ public class PrintTokens2 {
     return false;
   }
 
-  private static void printToken(char[] token) {
+  private void printToken(char[] token) {
     int type = tokenType(token);
     if (type == specSymbol) {
       printSpecSymbol(token);
-      output += specSymbol;
+      state.output += specSymbol;
     } else if (type == error) {
       System.out.print("error, \"");
       System.out.print(token);
       System.out.print("\".\n");
-      output += error;
+      state.output += error;
     } else if (type == keyword) {
       System.out.print("keyword, \"");
       System.out.print(token);
       System.out.print("\".\n");
-      output += keyword;
+      state.output += keyword;
     } else if (type == identifier) {
       System.out.print("identifier, \"");
       System.out.print(token);
       System.out.print("\".\n");
-      output += identifier;
+      state.output += identifier;
     } else if (type == numConstant) {
       System.out.print("numeric,");
       System.out.print(token);
       System.out.print(".\n");
-      output += numConstant;
+      state.output += numConstant;
     } else if (type == strConstant) {
       System.out.print("string,");
       System.out.print(token);
       System.out.print(".\n");
-      output += strConstant;
+      state.output += strConstant;
     } else if (type == charConstant) {
       System.out.print("character, \"");
       System.out.print(token);
       System.out.print("\".\n");
-      output += charConstant;
+      state.output += charConstant;
     } else if (type == end) {
       System.out.print("eof.\n");
-      output += end;
+      state.output += end;
     }
   }
 
-  private static void printSpecSymbol(char[] token) {
+  private void printSpecSymbol(char[] token) {
     if (token[0] == '(') {
       System.out.println("lparen.");
     } else if (token[0] == ')') {
@@ -108,7 +116,7 @@ public class PrintTokens2 {
     }
   }
 
-  private static int tokenType(char[] token) {
+  private int tokenType(char[] token) {
     boolean _specSymbol = isSpecSymbol(token);
     if (_specSymbol) {
       return specSymbol;
@@ -270,12 +278,12 @@ public class PrintTokens2 {
     }
   }
 
-  private static char[] getToken(TokenStream tp) {
+  private char[] getToken(TokenStream tp) {
     char[] ch1 = new char[2];
     ch1[0] = '\0';
     ch1[1] = '\0';
     for (int j = 0; j <= 80; ) {
-      buffer[j] = '\0';
+      state.buffer[j] = '\0';
       j = j + 1;
     }
 
@@ -296,14 +304,14 @@ public class PrintTokens2 {
       }
     }
     int i = 0;
-    buffer[i] = ch;
-    boolean _isEOFToken = isEOFToken(buffer);
+    state.buffer[i] = ch;
+    boolean _isEOFToken = isEOFToken(state.buffer);
     if (_isEOFToken) {
-      return buffer;
+      return state.buffer;
     }
-    boolean _isSpecSymbol = isSpecSymbol(buffer);
+    boolean _isSpecSymbol = isSpecSymbol(state.buffer);
     if (_isSpecSymbol) {
-      return buffer;
+      return state.buffer;
     }
     int id = 0;
     if (ch == '"') {
@@ -317,7 +325,7 @@ public class PrintTokens2 {
     while (!continueIndex) {
       i = i + 1;
       if (i <= 80) {
-        buffer[i] = ch;
+        state.buffer[i] = ch;
       }
       ch = getChar(tp);
       continueIndex = isTokenEnd(id, ch);
@@ -328,30 +336,30 @@ public class PrintTokens2 {
     _isEOFToken = isEOFToken(ch1);
     if (_isEOFToken) {
       ch = ungetChar(ch, tp);
-      return buffer;
+      return state.buffer;
     } else {
 
       _isSpecSymbol = isSpecSymbol(ch1);
       if (_isSpecSymbol) {
         ch = ungetChar(ch, tp);
-        return buffer;
+        return state.buffer;
       }
     }
 
     if (id == 1) {
       i = i + 1;
       if (i <= 80) {
-        buffer[i] = ch;
+        state.buffer[i] = ch;
       }
-      return buffer;
+      return state.buffer;
     } else if (id == 0) {
       if (ch == 59) {
         ch = ungetChar(ch, tp);
-        return buffer;
+        return state.buffer;
       }
     }
 
-    return buffer;
+    return state.buffer;
   }
 
   private static boolean isdigit(char ch) {

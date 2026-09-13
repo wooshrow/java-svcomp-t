@@ -46,6 +46,9 @@ public class StdXMLParser {
 
   /** The validator that will process entity references and validate the XML data. */
   //    protected IXMLValidator validator;
+  
+  // moved from DumpXML
+  public int numIdentifiers;
 
   /** Creates a new parser. */
   public StdXMLParser() {
@@ -703,7 +706,9 @@ public class StdXMLParser {
       }
     }
     //        String ret = result.toString();
-    DumpXML.numIdentifiers += resultInd;
+    //DumpXML.numIdentifiers += resultInd;
+    numIdentifiers += resultInd;
+    
     //        return ret;
     return result;
   }

@@ -57,25 +57,27 @@ public class AttributeConstraint {
   // op is one of these:
   //
   /** equality */
-  public static final short EQ = 1;
+  public final short EQ = 1;
   /** less than */
-  public static final short LT = 2;
+  public final short LT = 2;
   /** greater than */
-  public static final short GT = 3;
+  public final short GT = 3;
   /** greater o equal */
-  public static final short GE = 4;
+  public final short GE = 4;
   /** less or equal */
-  public static final short LE = 5;
+  public final short LE = 5;
   /** prefix (for strings only, e.g., "software" PF "soft") */
-  public static final short PF = 6;
+  public final short PF = 6;
   /** suffix (for strings only, e.g., "software" PF "ware") */
-  public static final short SF = 7;
+  public final short SF = 7;
   /** <em>any</em> */
-  public static final short XX = 8;
+  public final short XX = 8;
   /** not equal */
-  public static final short NE = 9;
+  public final short NE = 9;
   /** substring (for strings only, e.g., "software" PF "war") */
-  public static final short SS = 10;
+  public final short SS = 10;
+  
+  AttributeConstraint() { }
 
   public AttributeConstraint(short o) {
     value = new AttributeValue();
