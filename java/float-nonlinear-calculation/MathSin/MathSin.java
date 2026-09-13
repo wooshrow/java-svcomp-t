@@ -33,16 +33,16 @@
 
 public class MathSin {
 
-  public static final int IEEE_MAX = 2047;
-  public static final int IEEE_BIAS = 1023;
-  public static final int IEEE_MANT = 52;
+  public final int IEEE_MAX = 2047;
+  public final int IEEE_BIAS = 1023;
+  public final int IEEE_MANT = 52;
 
-  public static final double sixth = 1.0 / 6.0;
-  public static final double half = 1.0 / 2.0;
-  public static final double mag52 = 1024. * 1024. * 1024. * 1024. * 1024. * 4.; /*2**52*/
-  public static final double magic = 1024. * 1024. * 1024. * 1024. * 1024. * 4.; /*2**52*/
+  public final double sixth = 1.0 / 6.0;
+  public final double half = 1.0 / 2.0;
+  public final double mag52 = 1024. * 1024. * 1024. * 1024. * 1024. * 4.; /*2**52*/
+  public final double magic = 1024. * 1024. * 1024. * 1024. * 1024. * 4.; /*2**52*/
 
-  public static final double[] P = {
+  public final double[] P = {
     -0.64462136749e-9,
     0.5688203332688e-7,
     -0.359880911703133e-5,
@@ -53,17 +53,17 @@ public class MathSin {
     0.15707963267948963959e1
   };
 
-  public static double _2_pi_hi; // = 2.0/Math.PI ;
-  public static double _2_pi_lo;
-  public static double pi2_lo;
-  public static double pi2_hi_hi;
-  public static double pi2_hi_lo;
-  public static double pi2_lo_hi;
-  public static double pi2_lo_lo;
-  public static double pi2_hi; // = Math.PI/2;
-  public static double pi2_lo2;
+  public double _2_pi_hi; // = 2.0/Math.PI ;
+  public double _2_pi_lo;
+  public double pi2_lo;
+  public double pi2_hi_hi;
+  public double pi2_hi_lo;
+  public double pi2_lo_hi;
+  public double pi2_lo_lo;
+  public double pi2_hi; // = Math.PI/2;
+  public double pi2_lo2;
 
-  public static final double X_EPS = (double) 1e-4;
+  public final double X_EPS = (double) 1e-4;
 
   // ========================================================
   public double mysin(double x) {
