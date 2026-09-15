@@ -15,7 +15,7 @@ TO DO:
 * _Jbmc-regression_ : false-valid-assert problems.
 * _Mine-pump_ : false-valid-assert problems.
 
-[Bnechmark results 2026 Sept.](./tools/maze/Maze-false-valid-assert-130-2026-09.md)
+[Benchmark results 2026 Sept.](./tools/maze/Maze-false-valid-assert-130-2026-09.md)
 
 ### Project structure:
 
