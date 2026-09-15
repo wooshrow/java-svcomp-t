@@ -15,7 +15,7 @@ def toolrun(benchhomeDir,problem,tasktype,timebudget):
    tooldir = Path(".")
    tooljar = f"{tooldir}/maze-1.1.2-jar-with-dependencies.jar"
    CUTclassdir = benchhomeDir / problem / "classes"
-   outputdir = tooldir / "out" / tasktype / problem
+   outputdir = tooldir / "out" / f"{toolname}-{tasktype}-{timebudget}" / problem
    if outputdir.exists():
       shutil.rmtree(outputdir)
    os.makedirs(outputdir)
@@ -80,14 +80,12 @@ def toolrun(benchhomeDir,problem,tasktype,timebudget):
        subprocess.run(["mv", f"{tooldir / "logs"}", f"{outputdir}/"])
    return verdict
 
-def runBench(taskType,timebudget):
-    muBenchExec.runBench(toolrun,toolname,taskType,timebudget)
 
 #
 # run the benchmark. Syntax:
-#     runBench(task-type,timebudget).
+#     muBenchExec.runBench(toolrun,toolname,task-type,timebudget)
 #  Or from cmd-line:
-#     >pyhton Runtool.py <task-type> <timebudget>
+#     >pyhton Runtool.py <tool-name> <task-type> <timebudget>
 #
 # Available task-types:
 #    true-valid-assert
@@ -98,8 +96,12 @@ def runBench(taskType,timebudget):
 if __name__ == '__main__':
    theTaskType = "false-valid-assert"
    timebudget = 60
-   if len(sys.argv) > 1 :
-      theTaskType = sys.argv[1]
-   if len(sys.argv) > 2 :
-      timebudget = int(sys.argv[2])
-   runBench(theTaskType,timebudget)
+   if len(sys.argv) <= 1 :
+      print("* You need at least one argument!")
+   else:
+      toolname = sys.argv[1]
+      if len(sys.argv) > 2 :
+         theTaskType = sys.argv[2]
+      if len(sys.argv) > 3 :
+         timebudget = int(sys.argv[3])
+      muBenchExec.runBench(toolrun,toolname,theTaskType,timebudget)

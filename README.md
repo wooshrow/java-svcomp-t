@@ -1,12 +1,29 @@
 # java-svcomp-t
 
-This project contains migrated **java verification problems** from [SV-COMP](https://gitlab.com/sosy-lab/benchmarking/sv-benchmarks), adjusted to benchmark the testing tool [MAZE](https://github.com/ThijnK/maze). At the moment not all problems are migrated yet; but we will keep adding migrated problems 😊.
+This project contains ported **java verification problems** from [SV-COMP](https://gitlab.com/sosy-lab/benchmarking/sv-benchmarks), adjusted to benchmark the testing tool [MAZE](https://github.com/ThijnK/maze). At the moment not all problems are migrated yet; but we will keep adding migrated problems 😊. Each verification problem in SVCOMP is represented by an entry point java method, e.g. _main(x,y,z)_. The task could be to verify that the program never throw an uncaught exception, with respect to all possible values of x,y,z. Or, the task could be to find an instance of x,y,z that would cause the program to violate an assertion. However,in SVCOMP these parameters x,y,z are represented through injections of code `Verifier.nondetType()` in the body of _main()_ rather than nicely as parameters _main(x,y,z)_. The port provided here basically make those parameters become normal parameters. This would make the problems easier to target by tools, including MAZE.
+
+Currently included sets:
+
+* _Algorithms_: complete
+* _JDart-regression_ : complete
+* _Jayhorn-recursive_ : complete
+* _Java-ranger-regression_ : includes all false-valid-assert problems.
+* _float-nonlinear-calculation_ : includes all false-valid-assert problems.
+
+TO DO:
+
+* _Jbmc-regression_ : false-valid-assert problems.
+* _Mine-pump_ : false-valid-assert problems.
+
+[Bnechmark results 2026 Sept.](./tools/maze/Maze-false-valid-assert-130-2026-09.md)
 
 ### Project structure:
 
 * `orig-svcomp-java` : contains the original SVCOMP problems.
 * `java` : contains migrated problems.
-* The file [`java/problems.list`](./java/problems.list) lists all the migrated problems included the benchmark. You can comment-out some if you want to run the benchmarking with only a subset of them.
+* The file [`java/all-problems.list`](./java/all-problems.list) lists all problems that have been ported.
+The file [`java/problems.list`](./java/problems.list) lists all problems that are included when you run the benchmarking. So, you can copy all, or some, entries from `all-problems.list` to `problems.list`.
+
 
 ### Benchmark Structure
 
@@ -52,16 +69,19 @@ A class with static variables is refactored in one of the following ways. (1) th
 
 ### Building
 
-You'll need to compile every verification problem to produce the corresponding Java bytecode (.class files). You can run the Python script `./java/compile.py` to produce those binaries. They will be placed in `/classes` sub-dir of every task directory. **NOTE:** SV-COMP requires them to be compiled with Java 1.8. But this actually depends on which Java versions your verification tools can handle. MAZE can verify targets in Java 1.8, and it can also handle Java 21.
-
- (requirement from SV-COMP).
+You'll need to compile every verification problem to produce the corresponding Java bytecode (.class files). You can run the Python script `./java/compile.py` to produce those binaries. They will be placed in `/classes` sub-dir of every task directory. **NOTE:** SV-COMP requires them to be compiled with Java 1.8 (requirement from SV-COMP). But this actually depends on which Java versions your verification tools can handle. MAZE can verify targets in Java 1.8, and it can also handle Java 21. .
 
 ### Running the benchmark
 
-Currently only one tool is available for benchmarking, namely the aforementioned MAZE. Go to `./tools/maze`, the run the Python script `>python Runtool.py tasktype`.
+Currently only one tool is available for benchmarking, namely the aforementioned MAZE. Go to `./tools/maze`, then run the Runtool.py Python script:
 
-#### Availble task-types
+   `> python Runtool.py toolname tasktype timebudget`.
 
+The results will be placed in `./tools/maze/out`.
+
+* Toolname can be anything e.g. `maze-standard` or `maze-setup2` etc. This provides a way to organize the reulsts, as they will be placed in a folder whose name is prefixed by the tool name.
+* Tasktype: see above on available verification tasks.
+* Timebudget: in seconds. E.g. 60 or 90. Internally the benchmark adds 10s to your given timebudget. This extra time is meant to give an opportunity to the verification tool to properly terminate. If timebudget+10 seconds expires, the benchmark script will kill the process that runs the verification tool.
 
 
 #### Benchmarking other verification tools

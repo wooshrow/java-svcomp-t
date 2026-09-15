@@ -4,6 +4,7 @@ from pathlib import Path
 import subprocess
 import time
 import yaml
+import csv
 
 import logging
 logging.basicConfig(
@@ -53,6 +54,16 @@ def getProblems(taskType):
        problems = [P.strip() for P in f if not P.strip().startswith("#")]
     return [ P for P in problems if isTaskTypePresent(P,taskType)]
 
+def saveResultsToCSV(dir,toolname,taskType,timebudget,results):
+    fname = f"{toolname}-{taskType}-{timebudget}.csv"
+    fpath = dir / fname
+    with open(str(fpath), 'w', newline='') as csvfile:
+       fieldnames = ['problem', 'expected', 'verdict', 'time', 'load-issue']
+       writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+       writer.writeheader()
+       writer.writerows(results)
+
+
 
 def runBench(tool,toolname,taskType,timebudget) :
     """
@@ -85,15 +96,20 @@ def runBench(tool,toolname,taskType,timebudget) :
         print("* Unknown task-type! Aborting.")
         return
 
+    # budget, extended with extra 10s before the tool will be forced to terminate
+    timebudget2 = timebudget+10
+
     # reading the task-list
     problems = getProblems(taskType)
     testedTasks = 0
     correct = 0
     logging.info(f"== START benchmarking. tool:{toolname}, tasktype:{taskType}")
+    results = []
     for P in problems:
       path = benchhomeDir / Path(P)
       if (not path.exists()):
           logging.warning(f"* {path} does not exist. Ignored.")
+          results.append({"problem":P, "load-issue":"path does not exists" })
           continue
       testedTasks += 1
 
@@ -102,12 +118,16 @@ def runBench(tool,toolname,taskType,timebudget) :
       starttime = time.time()
       try :
          # giving extra 10s to the tool to close
-         verdict = tool(benchhomeDir.absolute(),P,taskType,timebudget+10)
+         timebudget2
+         verdict = tool(benchhomeDir.absolute(),P,taskType,timebudget2)
          duration = time.time() - starttime
       except :
          verdict = "CRASH"
-         duration = None
-      logging.info(f"P:{P},  verdict:{verdict}, expecting:{expectedVerdict}, T={round(duration,3)}")
+         duration = timebudget2
+      duration = round(duration,3)
+      logging.info(f"P:{P},  verdict:{verdict}, expecting:{expectedVerdict}, T={duration}")
+      results.append({"problem":P, "expected":expectedVerdict, "verdict":verdict, "time":duration, "load-issue":None })
       if verdict==expectedVerdict : correct += 1
     logging.info("== END")
     logging.info(f"== tasktype:{taskType}, #problems:{len(problems)}, tested:{testedTasks}, correct:{correct}")
+    saveResultsToCSV(Path("out"),toolname,taskType,timebudget2,results)
