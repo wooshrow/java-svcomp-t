@@ -7,13 +7,14 @@ Currently included sets:
 * _Algorithms_: complete
 * _JDart-regression_ : complete
 * _Jayhorn-recursive_ : complete
+*  _Mine-pump_ : complete
 * _Java-ranger-regression_ : includes all false-valid-assert problems.
 * _float-nonlinear-calculation_ : includes all false-valid-assert problems.
 
 TO DO:
 
 * _Jbmc-regression_ : false-valid-assert problems.
-* _Mine-pump_ : false-valid-assert problems.
+* false-valid-assert problems.
 
 [Benchmark results 2026 Sept.](./tools/maze/Maze-false-valid-assert-130-2026-09.md)
 

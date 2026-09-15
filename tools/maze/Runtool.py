@@ -50,7 +50,8 @@ def toolrun(benchhomeDir,problem,tasktype,timebudget):
                 "-s=BFS",
                 f"-b={timebudget2}",
                 "--max-depth=700",
-                "--max-array-size=10",
+                #"--max-array-size=10",
+                "--max-array-size=20",
                 #"--export-jimple=1",
                 "--constrain-FP-params-to-normal-numbers=true",
                 "--check-divbyZero=true"
