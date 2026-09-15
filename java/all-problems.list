@@ -192,3 +192,62 @@ MinePump/spec1-5_product61
 MinePump/spec1-5_product62
 MinePump/spec1-5_product63
 MinePump/spec1-5_product64
+# =========
+# Securibench
+# =========
+#securibench/Aliasing1
+# =========
+# jpf-regression set
+# =========
+jpf-regression/ExDarko_false
+jpf-regression/ExException_false
+jpf-regression/ExGenSymExe_false
+jpf-regression/ExLazy_false
+jpf-regression/ExMIT_false
+jpf-regression/ExSymExe_false
+jpf-regression/ExSymExe1_false
+jpf-regression/ExSymExe2_false
+jpf-regression/ExSymExe3_false
+jpf-regression/ExSymExe4_false
+jpf-regression/ExSymExe5_false
+jpf-regression/ExSymExe6_false
+jpf-regression/ExSymExe7_false
+jpf-regression/ExSymExe8_false
+jpf-regression/ExSymExe9_false
+jpf-regression/ExSymExe10_false
+jpf-regression/ExSymExe11_false
+jpf-regression/ExSymExe12_false
+jpf-regression/ExSymExe13_false
+jpf-regression/ExSymExe14_false
+jpf-regression/ExSymExe15_false
+jpf-regression/ExSymExe16_false
+jpf-regression/ExSymExe17_false
+jpf-regression/ExSymExe18_false
+jpf-regression/ExSymExe19_false
+jpf-regression/ExSymExe20_false
+jpf-regression/ExSymExe21_false
+jpf-regression/ExSymExe25_false
+jpf-regression/ExSymExe26_false
+jpf-regression/ExSymExe27_false
+jpf-regression/ExSymExe28_false
+jpf-regression/ExSymExe29_false
+jpf-regression/ExSymExeArrays_false
+jpf-regression/ExSymExeBool_false
+jpf-regression/ExSymComplexMath_false
+jpf-regression/ExSymExeD2I_false
+jpf-regression/ExSymExeD2L_false
+jpf-regression/ExSymExeF2I_false
+jpf-regression/ExSymExeF2L_false
+jpf-regression/ExSymExeFNEG_false
+jpf-regression/ExSymExeGetStatic_false
+jpf-regression/ExSymExeI2D_false
+jpf-regression/ExSymExeI2F_false
+jpf-regression/ExSymExeLCMP_false
+jpf-regression/ExSymExeLongBytecodes_false
+jpf-regression/ExSymExeResearch_false
+jpf-regression/ExSymExeSimple_false
+jpf-regression/ExSymExeSuzette_false
+jpf-regression/ExSymExeSwitch_false
+jpf-regression/ExSymExeTestAssignments_false
+jpf-regression/ExSymExeTestClassFields_false
+jpf-regression/TestLazy_false

@@ -5,19 +5,24 @@ This project contains ported **java verification problems** from [SV-COMP](https
 Currently included sets:
 
 * _Algorithms_: complete
-* _JDart-regression_ : complete
 * _Jayhorn-recursive_ : complete
-*  _Mine-pump_ : complete
-* _Java-ranger-regression_ : includes all false-valid-assert problems.
 * _float-nonlinear-calculation_ : includes all false-valid-assert problems.
+* _JDart-regression_ : complete
+* _Java-ranger-regression_ : includes all false-valid-assert problems.
+*  _Mine-pump_ : complete
+* _Jpf-regression_ : all false-valid-assert problems.
 
 TO DO:
 
 * _Jbmc-regression_ : false-valid-assert problems.
-* false-valid-assert problems.
+* security-specific problem-sets _juliet_ and _securibench_. These contain prevalent use of I/O (e.g. Socket), which are currently beyond MAZE.
+
 
 [Benchmark results 2026 Sept.](./tools/maze/Maze-false-valid-assert-130-2026-09.md)
 
+Not included:
+
+*
 ### Project structure:
 
 * `orig-svcomp-java` : contains the original SVCOMP problems.
