@@ -60,6 +60,9 @@ def toolrun(benchhomeDir,problem,tasktype,timebudget):
                 capture_output=True)
        o = str(sp.stdout)
        o1 = o.split("n.u.m.")
+       #print(f">>> {o}")
+       #print(f">>> {sp.stderr}")
+
        N = len(o1)
        verdict = "CRASH" # no error found
        for i in range(N - 1, -1, -1):
