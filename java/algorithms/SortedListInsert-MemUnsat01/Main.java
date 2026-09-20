@@ -72,9 +72,6 @@ public class Main {
       return ;
 
     try {
-      // adding a dummy statement to side-step MAZE try-catch mysterious bug
-      int dummy = 0 ;
-      
       List list = new List();
       for (int i = 0; i < N; i++)
          //list.insert(Verifier.nondetInt());

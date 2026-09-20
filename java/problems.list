@@ -8,4 +8,14 @@
 #jbmc-regression/exceptions3
 #jbmc-regression/exceptions6
 #jbmc-regression/exceptions7
-jbmc-regression/ClassCastException3
+#jbmc-regression/ClassCastException3
+#
+#algorithms/BinaryTreeSearch-MemUnsat01
+#algorithms/Tsp-MemUnsat01
+#algorithms/SortedListInsert-MemUnsat01
+#algorithms/BinaryTreeSearch-MemSat01
+#algorithms/Tsp-MemSat01
+#algorithms/RedBlackTree-MemSat01
+#algorithms/RedBlackTree-MemUnsat01
+algorithms/BinaryTreeSearch-MemUnsat02
+algorithms/SortedListInsert-MemSat01

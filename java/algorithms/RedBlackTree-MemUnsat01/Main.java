@@ -55,9 +55,6 @@ public class Main {
 
 
     try{
-      // adding a dummy statement to side-step MAZE try-catch mysterious bug
-      int dummy = 0 ;
-
       RedBlackTree tree = new RedBlackTree();
 
       for (int i = 0; i < N; i++) {

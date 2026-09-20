@@ -107,10 +107,7 @@ public class Main {
     if (ns == null || ns.length != N)
        return ;
 
-    try {
-      // adding a dummy statement to side-step MAZE try-catch mysterious bug
-      int dummy = 0 ;
-      
+    try { 
       BinaryTree b = new BinaryTree();
       for (int i = 1; i < N; i++) {
         //b.insert(Verifier.nondetInt());

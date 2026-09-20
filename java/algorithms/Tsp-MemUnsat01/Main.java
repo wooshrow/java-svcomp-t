@@ -114,9 +114,6 @@ public class Main {
     }
 
     try {
-      // adding a dummy statement to side-step MAZE try-catch mysterious bug
-      int dummy = 0 ;
-      
       TspSolver tspSolver = new TspSolver(N, D);
       tspSolver.solve();
     } catch (Exception e) {
