@@ -19,12 +19,9 @@ TO DO:
 
 * security-specific problem-sets _juliet_ and _securibench_. These contain many use of I/O (e.g. Socket), which are currently beyond MAZE.
 
-
 [Benchmark results 2026 Sept.](./tools/maze/Maze-false-valid-assert-130-2026-09.md)
 
-Not included:
 
-*
 ### Project structure:
 
 * `orig-svcomp-java` : contains the original SVCOMP problems.
